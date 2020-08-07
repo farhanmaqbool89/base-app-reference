@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class TopBarComponent implements OnInit {
   today = new Date();
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private changeDetector: ChangeDetectorRef) {
   }
 
+
+  ngOnInit() {
+    this.clock();
+  }
+  clock() {
+    this.today = new Date();
+    let timeoutId = setInterval(() => {
+      this.today = new Date();
+      this.changeDetector.detectChanges();
+    }, 1000);
+
+  }
 }
+
+

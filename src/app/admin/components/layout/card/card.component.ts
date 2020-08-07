@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
         <mat-card-title>Cat</mat-card-title>
         <mat-card-subtitle>Quis Nostrud Exercitation</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="/assets/images/cica1.jpg" alt="cat">
+    <img mat-card-image src="assets/images/cica1.jpg" alt="cat">
     <mat-card-content>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
