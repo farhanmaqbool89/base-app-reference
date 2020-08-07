@@ -1,0 +1,19 @@
+.mat-divider {
+  margin: 22px 0;
+}
+.show-grid {
+  padding: 10px 0;
+
+  div {
+    background-color: #EEE;
+    border: 1px solid #ccc;
+    display: block;
+    line-height: 40px;
+    min-height: 40px;
+    text-align: center;
+  }
+}
+
+.main-grid-display {
+  max-width: calc(100% - 250px) !important;
+}

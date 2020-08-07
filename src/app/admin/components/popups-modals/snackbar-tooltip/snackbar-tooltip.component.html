@@ -1,0 +1,133 @@
+
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Snackbar & Tooltip </h2>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Snackbar</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="snackbarView = !snackbarView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="snackbarView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="snackbarSource"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #tsText><code [highlight]="snackbarTS"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <mat-form-field>
+              <input matInput value="Disco party!" placeholder="Message" #message>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput value="Dance" placeholder="Action" #action>
+            </mat-form-field>
+
+            <button mat-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+          </mat-card>
+        </div>
+
+
+
+
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Tooltip</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="toolbarView = !toolbarView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="toolbarView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="toolbarSource"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+            <button mat-raised-button
+                    matTooltip="Info about the action"
+                    aria-label="Button that displays a tooltip when focused or hovered over">
+              Action
+            </button>
+          </mat-card>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

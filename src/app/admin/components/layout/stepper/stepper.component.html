@@ -1,0 +1,202 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Stepper</h2>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple Horizontal Stepper</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="horizontalSimpleStepper = !horizontalSimpleStepper">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="horizontalSimpleStepper">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="horizontalSimpleStepperSource"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <mat-horizontal-stepper>
+                            <mat-step label="Step 1">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </mat-step>
+                            <mat-step label="Step 1">
+                                Excepteur sint occaecat cupidatat non proident,
+                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </mat-step>
+                        </mat-horizontal-stepper>
+
+                    </mat-card>
+                </div>
+
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple vertical Stepper</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="verticalSimpleStepper = !verticalSimpleStepper">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="verticalSimpleStepper">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="verticalSimpleStepperSource"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <mat-vertical-stepper>
+                            <mat-step label="Step 1">
+                                Lorem ipsum dolor sit Sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </mat-step>
+                            <mat-step label="Step 1">
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                                officia deserunt mollit anim id est laborum.
+                            </mat-step>
+                        </mat-vertical-stepper>
+
+                    </mat-card>
+                </div>
+
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Horizontal Stepper that displays errors in the steps</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="formStepper = !formStepper">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="formStepper">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="formStepperSourceHtml"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #tsText><code [highlight]="stepperErrorSourceTS"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                            <mat-step [stepControl]="firstFormGroup">
+                                <form [formGroup]="firstFormGroup">
+                                    <ng-template matStepLabel>Fill out your name</ng-template>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                               required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="secondFormGroup">
+                                <form [formGroup]="secondFormGroup">
+                                    <ng-template matStepLabel>Fill out your address</ng-template>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step>
+                                <ng-template matStepLabel>Done</ng-template>
+                                You are now done.
+                                <div>
+                                    <button mat-button matStepperPrevious>Back</button>
+                                    <button mat-button (click)="stepper.reset()">Reset</button>
+                                </div>
+                            </mat-step>
+                        </mat-horizontal-stepper>
+
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

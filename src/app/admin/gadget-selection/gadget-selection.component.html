@@ -1,0 +1,385 @@
+<mat-dialog-content>
+    <div class="modal-header">
+        <h3>Create Wallboard - Widget & Data Selection</h3>
+        <button mat-icon-button color="primary" class=" modal-close-trigger" [mat-dialog-close]="true">
+            <i class="material-icons">close</i>
+        </button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel-body">
+                    <div class="sub-heading stepper-headings">
+                        <h2>Wallboard Widget Settings</h2>
+                        <p>Adding wallboard to group allows you to run multiple wallboards in horizontally with or
+                            without
+                            scrolling</p>
+                    </div>
+                    <div class="d-flex justify-content-around select-gadget-main">
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/speedo-meter.png" alt="Speedometer">
+                            </div>
+                            <p>Speedometer</p>
+                        </div>
+
+
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/pie-chart.png" alt="Pie Chart">
+                            </div>
+                            <p>Pie Chart</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/line-chart.png" alt="Line Chart">
+                            </div>
+                            <p>Line Chart</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/bar-chart.png" alt="Bar Chart">
+                            </div>
+                            <p>Bar Chart</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/doughnut-chart.png" alt="Doughnut Chart">
+                            </div>
+                            <p>Doughnut Chart</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="d-flex justify-content-around select-gadget-main">
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/icon-group.png" alt="Text Box with Icon">
+                            </div>
+                            <p>Text Box with Icon</p>
+                        </div>
+                        <div class="select-gadget">
+                            <div class="showcase-area">
+                                <img src="/assets/images/text-group.png" alt="Text Boxes">
+                            </div>
+                            <p>Text Boxes</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/horizontal-text-box.png"
+                                     alt="Horizontal Text Box">
+                            </div>
+                            <p>Horizontal Text Box</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/heading-area.png" alt="Greeting Message">
+                            </div>
+                            <p>Greeting Message</p>
+                        </div>
+                        <div class="select-gadget ">
+                            <div class="showcase-area">
+                                <img src="/assets/images/text-area.png" alt="Text Box">
+                            </div>
+                            <p>Text Box</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel-body widget-form-area">
+                    <div class="sub-heading stepper-headings">
+                        <h2>Wallboard Widget Settings</h2>
+                        <p>Adding wallboard to group allows you to run multiple wallboards in horizontally with or
+                            without
+                            scrolling</p>
+                    </div>
+
+                    <form>
+                        <div class="row inner-fields">
+                            <div class="form-group col-md-6">
+                                <mat-label>Title of the widget <span class="required">*</span></mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input matInput #title maxlength="150"
+                                           required>
+                                </mat-form-field>
+                                <div class="clearfix"></div>
+                                <small class="mat-hint">
+                                    <mat-hint style="font-size: 100%"
+                                              *ngIf="title.value.length > 0">{{title.value.length}} /
+                                    </mat-hint>
+                                    150 character
+                                </small>
+
+                            </div>
+                            </div>
+                        <div class="row inner-fields">
+                            <div class="form-group col-md-6">
+                                <mat-label>Select Data Source <span class="required">*</span></mat-label>
+                                <div class="clearfix"></div>
+                                <mat-form-field appearance="outline" class="col-md-12 p-0">
+                                    <mat-select>
+                                        <mat-option *ngFor="let group of groups" [value]="group">
+                                            {{group.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <div class="clearfix"></div>
+                                <small class="mat-hint">
+                                   <small class="required">*</small> Data format for each widget is provided
+                                </small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-label>Select Attributes to display <span class="required">*</span></mat-label>
+                                <small class="mat-hint float-right"><small class="required">*</small>
+                                   Please Select maximum 6
+                                </small>
+                                <div class="clearfix"></div>
+                                <mat-form-field appearance="outline">
+                                    <mat-select [formControl]="selectAttributes" (selectionChange)="changed()" multiple>
+                                        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-md-6">
+                                <mat-label>Data Refresh Rate</mat-label>
+                                <div class="clearfix"></div>
+                                <mat-form-field appearance="outline" class="col-md-5 p-0">
+                                    <mat-select [(value)]="selectedDataRate">
+                                        <mat-option value="10">10 min</mat-option>
+                                        <mat-option value="10">20 min</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <mat-label>Primary Value</mat-label>
+                                <div class="clearfix"></div>
+                                <mat-form-field appearance="outline" class="col-md-12 p-0">
+                                    <mat-select>
+                                        <mat-option *ngFor="let group of groups" [value]="group">
+                                            {{group.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-md-6">
+                                <mat-label>Widget Threshold</mat-label>
+                                <div class="clearfix"></div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button value="1">Percentage</mat-radio-button>
+                                    <mat-radio-button value="2">Number</mat-radio-button>
+                                    <mat-radio-button value="3">None</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="form-group col-md-6 inline-fields">
+                                <mat-label>Threshold Values</mat-label>
+                                <div class="clearfix"></div>
+                                <label>Max</label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                                <label>Min</label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput>
+                                </mat-form-field>
+                                <label>Alert</label>
+                                <mat-form-field appearance="outline">
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="form-group col-md-6">
+                                <mat-label>Show Alerts for Threshold</mat-label>
+                                <div class="clearfix"></div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button value="yes">Yes</mat-radio-button>
+                                    <mat-radio-button value="no">No</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <mat-label>Alerts Type</mat-label>
+                                <div class="clearfix"></div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button value="screen-alert">On screen Alerts</mat-radio-button>
+                                    <mat-radio-button value="widget-alert">On Widget Alerts</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+
+                            <div>
+                            </div>
+                        </div>
+                            <div class="clearfix"></div>
+                        <hr>
+
+                        <div class="row inner-fields">
+                            <div class="form-group col-md-6">
+                                <mat-label>X-Axis Salutation</mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input matInput #xAxis maxlength="150"
+                                           required>
+                                </mat-form-field>
+                                <div class="clearfix"></div>
+                                <small class="mat-hint">
+                                    <mat-hint style="font-size: 100%"
+                                              *ngIf="xAxis.value.length > 0">{{xAxis.value.length}} /
+                                    </mat-hint>
+                                    150 character
+                                </small>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-label>Y-Axis Salutation</mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input matInput #yAxis maxlength="150"
+                                           required>
+                                </mat-form-field>
+                                <div class="clearfix"></div>
+                                <small class="mat-hint">
+                                    <mat-hint style="font-size: 100%"
+                                              *ngIf="yAxis.value.length > 0">{{yAxis.value.length}} /
+                                    </mat-hint>
+                                    150 character
+                                </small>
+
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="row inner-fields">
+                        <div class="form-group col-md-6">
+                                <mat-label>Greeting Message Widget Title</mat-label>
+                                <div class="row color-selection">
+                                    <div class="col-md-10">
+                                        <small class="mat-hint float-right">
+                                            <mat-hint style="font-size: 100%"
+                                                      *ngIf="widgetTitle.value.length > 0">{{widgetTitle.value.length}}
+                                                /
+                                            </mat-hint>
+                                            150 character
+                                        </small>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <!--<textarea #widgetTitle-->
+                                            <!--[style.background]="color"-->
+                                            <!--[cpIgnoredElements]="[ignoredButton, widgetTitle]"-->
+                                            <!--[(cpToggle)]="toggle1"-->
+                                            <!--[(colorPicker)]="color" matInput maxlength="150"></textarea>-->
+
+                                            <textarea #ignoredInput matInput
+                                                      [style.color]="color"
+                                                      [cpIgnoredElements]="[ignoredButton, ignoredInput]"
+                                                      [(cpToggle)]="toggle"
+                                                      [(colorPicker)]="color"></textarea>
+
+                                        </mat-form-field>
+                                    </div>
+                                    <button class="col-sm-2 p-0 text-left">
+
+                                        <img #ignoredButton (click)="toggle=!toggle"
+                                             src="/assets/images/color-selector.png">
+                                    </button>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-label>Greeting Message Widget Subtitle</mat-label>
+                                <div class="row color-selection">
+                                    <div class="col-sm-10">
+                                        <small class="mat-hint float-right">
+                                            <mat-hint style="font-size: 100%"
+                                                      *ngIf="widgetSubTitle.value.length > 0">{{widgetSubTitle.value.length}}
+                                                /
+                                            </mat-hint>
+                                            150 character
+                                        </small>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                    <textarea #widgetSubTitle
+                                              [style.color]="color2"
+                                              [cpIgnoredElements]="[ignoredButton2, widgetSubTitle]"
+                                              [(cpToggle)]="toggle2"
+                                              [(colorPicker)]="color2" matInput maxlength="150"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <button class="col-sm-2 p-0 text-left"><img #ignoredButton2
+                                                                                (click)="toggle2=!toggle2"
+                                                                                src="/assets/images/color-selector.png">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="clearfix"></div>
+                            <hr>
+                        <div class="row inner-fields">
+                        <div class="form-group col-md-12">
+                                <mat-label>Text Box Widget Text</mat-label>
+                                <div class="row color-selection">
+                                    <div class="col-md-6">
+                                        <small class="mat-hint float-right">
+                                            <mat-hint style="font-size: 100%"
+                                                      *ngIf="widgetTitle.value.length > 0">{{widgetTitle.value.length}}
+                                                /
+                                            </mat-hint>
+                                            150 character
+                                        </small>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                    <textarea #widgetTitle
+                                              [style.color]="color4"
+                                              [style.background]="color3"
+
+                                              matInput maxlength="150"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-2 p-0 text-left ml-5 color-selection">
+                                        <mat-label>Background Color</mat-label>
+                                        <input readonly #ignoredInput3
+                                               [style.background]="color3"
+                                               [cpIgnoredElements]="[ignoredButton3, ignoredInput3]"
+                                               [(cpToggle)]="toggle3"
+                                               [(colorPicker)]="color3"/>
+                                        <img #ignoredButton3
+                                             (click)="toggle3=!toggle3"
+                                             src="/assets/images/color-selector.png">
+                                    </div>
+                                    <div class="col-sm-2 p-0 text-left color-selection">
+                                        <mat-label>Text Color</mat-label>
+                                        <input readonly #ignoredInput4
+                                               [style.background]="color4"
+                                               [cpIgnoredElements]="[ignoredButton4, ignoredInput4]"
+                                               [(cpToggle)]="toggle4"
+                                               [(colorPicker)]="color4"/>
+
+                                        <img #ignoredButton4 (click)="toggle4=!toggle4"
+                                             src="/assets/images/color-selector.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="template-action row">
+                            <div class="col-md-12">
+                                <div class="action-area">
+                                    <button mat-raised-button class="gray-btn">Discard</button>
+                                    <button mat-raised-button class="green-btn">Save & Exit</button>
+                                    <button mat-raised-button class="dark-blue-btn">Preview in Browser</button>
+                                    <button mat-raised-button class="blue-btn" [mat-dialog-close]="true">Save & Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

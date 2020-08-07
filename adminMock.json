@@ -1,0 +1,107 @@
+{
+  "admin": [
+    {
+      "position": 1,
+      "type": "template",
+      "wallboardName": "Call and Customer Handling'",
+      "createdOn": "12/04/2019",
+      "createdBy": "Steven Grant",
+      "wallboards": 1,
+      "active": true,
+      "link": " ",
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": []
+    },
+    {
+      "position": 2,
+      "type": "template",
+      "wallboardName": "Team and Interaction Management",
+      "createdOn": "13/02/2019",
+      "createdBy": "John Smith",
+      "wallboards": 1,
+      "active": true,
+      "link": " ",
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": []
+    },
+    {
+      "position": 3,
+      "type": "template",
+      "wallboardName": "Team and Interaction Management",
+      "createdOn": "19/02/2019",
+      "createdBy": "Farhan Amjad",
+      "wallboards": 1,
+      "active": true,
+      "link": " ",
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": []
+    },
+    {
+      "position": 4,
+      "type": "group",
+      "wallboardName": "Interaction Management",
+      "createdOn": "18/02/2019",
+      "createdBy": "William Wayne",
+      "wallboards": 1,
+      "active": true,
+      "link": " " ,
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": [
+        {
+          "position": 1,
+          "type": "template",
+          "wallboardName": "Team and Interaction Management",
+          "createdOn": "18/02/2019",
+          "createdBy": "Anthony Stark",
+          "wallboards": 1,
+          "active": true,
+          "link": " ",
+          "edit": "edit",
+          "detail": "detail"
+        },
+        {
+          "position": 2,
+          "type": "template",
+          "wallboardName": "Interaction Management",
+          "createdOn": "18/02/2019",
+          "createdBy":"Thomas Brown",
+          "wallboards": 2,
+          "active": true,
+          "link": " ",
+          "edit": "edit",
+          "detail": "detail"
+        }
+      ]
+    },
+    {
+      "position": 5,
+      "type": "template",
+      "wallboardName": "Call Details",
+      "createdOn": "27/01/2019",
+      "createdBy": "Arya Wilson",
+      "wallboards": 1,
+      "active": true,
+      "link": " ",
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": []
+    },
+    {
+      "position": 6,
+      "type": "template",
+      "wallboardName": "Team Performance ",
+      "createdOn": "25/01/2019",
+      "createdBy": "Bruce Miller",
+      "wallboards": 1,
+      "active": false,
+      "link": "",
+      "edit": "edit",
+      "detail": "detail",
+      "groupRow": []
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+<div class="row m-0 ">
+    <div class="col-md-12">
+        <div class="admin-panel">
+            <div class="table-top-bar">
+                <div class="row">
+                    <div class="board-heading col-md-3">
+                        <h2>Manage Dashboards</h2>
+                    </div>
+                    <div class="table-bar-right col-md-9">
+
+                        <div class="filter-section">
+                            <div class="form-group search-group">
+                                <mat-form-field appearance="outline">
+                                    <input  matInput placeholder="Search">
+                                    <mat-icon>search</mat-icon>
+                                </mat-form-field>
+
+                            </div>
+                            <button mat-flat-button color="primary">
+                                <mat-icon>filter_list</mat-icon>
+                            </button>
+                            <button *ngIf="wallboard || pendingWallboard || !group" routerLink="/create-template"
+                                    mat-flat-button
+                                    color="primary">
+                                <mat-icon>library_add</mat-icon>
+                                Add Wallboard
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Manage Dashboard-->
+            <div class="manage-dashboard">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Dashboard name</th>
+                        <th></th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Created By</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of manageData">
+                        <td scope="row">{{data.wallboardName}} </td>
+                        <td class="table-trigger">
+                            <span class="list-trigger-area">
+                                        {{checked ? 'Active' : 'Not Active'}}
+                                <mat-slide-toggle (change)="onChange($event)"
+                                                  [checked]="checked"></mat-slide-toggle>
+
+                                        <button mat-mini-fab><i class="fa fa-pencil"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-files-o"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-link"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i>
+</button>
+                                     </span>
+                        </td>
+                        <td>{{data.createdOn}}</td>
+                        <td>{{data.createdBy}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <!--./Manage Dashboard-->
+
+            <!--Wallboard Administration-->
+            <mat-table #table [dataSource]="dataSource" *ngIf="false"
+                       class="col-sm-12 template-table">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef> No</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="material-icons">
+
+                        {{element.type === 'template' ? 'view_quilt' : 'folder'}}
+                    </i></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="wallboardName">
+                    <mat-header-cell *matHeaderCellDef> wallboard Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.wallboardName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="createdOn">
+                    <mat-header-cell *matHeaderCellDef> Created On</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdOn}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="createdBy">
+                    <mat-header-cell *matHeaderCellDef> Created By</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="active">
+                    <mat-header-cell *matHeaderCellDef> Active</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-checkbox [(ngModel)]="element.active"></mat-checkbox>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="link">
+                    <mat-header-cell *matHeaderCellDef> Link</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><a [matMenuTriggerFor]="beforeMenu"><i
+                            class="fa fa-link"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <a mat-menu-item href="{{element.link}}">Preview</a>
+                            <button mat-menu-item>Copy Link</button>
+                        </mat-menu>
+
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="detail">
+                    <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i *ngIf="element?.groupRow" class="fa fa-chevron-down"></i>
+                        <i *ngIf="!element?.groupRow" class="fa fa-minus"></i>
+                    </mat-cell>
+                </ng-container>
+                <!-- Expanded Content Column - The detail row is made up of this one column -->
+                <ng-container matColumnDef="expandedDetail" class="group-table">
+                    <mat-cell *matCellDef="let group" class="p-0 full-width-cell">
+                        <!-- Position Column -->
+                        <div *ngIf="group.element?.groupRow && group.element?.groupRow.length >1"
+                             class=" template-list group-area element-row mat-ripple mat-row"
+                             cdkDropList
+                             (cdkDropListDropped)="drop($event)">
+
+                            <div class="template-box" cdkDrag *ngFor="let data of group.element?.groupRow">
+
+                                <mat-cell> {{data.position}} </mat-cell>
+                                <mat-cell><i class="material-icons">
+                                    {{data.type === 'template' ? 'view_quilt' : 'folder'}}
+                                </i></mat-cell>
+                                <mat-cell> {{data.wallboardName}}
+                                    <span class="group-set-main">
+                                    <span class="group-set">
+                                        <label>Scroll</label>
+                                        <select>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </span>
+                                    <span class="group-set">
+                                        <label>Time/sec</label>
+                                        <select>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                    </select>
+
+                                    </span>
+                                    <span class="group-set">
+                                        <label>Order</label>
+                                        <select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </span>
+                                 </span>
+                                </mat-cell>
+                                <mat-cell> {{data.createdOn}} </mat-cell>
+                                <mat-cell> {{data.createdBy}} </mat-cell>
+                                <mat-cell>
+                                    <mat-checkbox [(ngModel)]="data.active"></mat-checkbox>
+                                </mat-cell>
+                                <mat-cell><a href="{{data.link}}"><i class="fa fa-link"></i> </a></mat-cell>
+                                <mat-cell *ngIf="data.groupRow"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </mat-cell>
+                                <mat-cell *ngIf="!data.groupRow"><i class="fa fa-minus" aria-hidden="true"></i>
+                                </mat-cell>
+
+                            </div>
+                        </div>
+
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="adminMain"></mat-header-row>
+                <mat-row
+                        *matRowDef="let row; columns: adminMain;"
+                        matRipple
+                        class="element-row"
+                        [class.expanded]="expandedElement == row"
+                        (click)="expandedElement = row;"></mat-row>
+
+                <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+                         [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+                         style="overflow: hidden">
+                </mat-row>
+            </mat-table>
+
+            <!--Group Table-->
+
+            <mat-table #table [dataSource]="dataSource" *ngIf="group && !wallboard" class="col-sm-12 template-table">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef> No</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="material-icons">
+
+                        {{element.type === 'template' ? 'view_quilt' : 'folder'}}
+                    </i></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="wallboardName">
+                    <mat-header-cell *matHeaderCellDef> wallboard Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.wallboardName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="createdOn">
+                    <mat-header-cell *matHeaderCellDef> Created On</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdOn}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="createdBy">
+                    <mat-header-cell *matHeaderCellDef> Created By</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="active">
+                    <mat-header-cell *matHeaderCellDef> Activate</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-checkbox [(ngModel)]="element.active"></mat-checkbox>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="link">
+                    <mat-header-cell *matHeaderCellDef> Link</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><a [matMenuTriggerFor]="beforeMenu"><i
+                            class="fa fa-link"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <a mat-menu-item href="{{element.link}}">Preview</a>
+                            <button mat-menu-item>Copy Link</button>
+                        </mat-menu>
+
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef> Edit</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="fa fa-pencil" aria-hidden="true"></i>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef> Delete</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="fa fa-trash" aria-hidden="true"></i>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="password">
+                    <mat-header-cell *matHeaderCellDef> Password</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <a [matMenuTriggerFor]="beforeMenu"><i class="fa fa-lock" aria-hidden="true"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <button mat-menu-item>Set Password</button>
+                            <button mat-menu-item>Copy Password</button>
+                            <button mat-menu-item>Change Password</button>
+                            <button mat-menu-item>Remove Password</button>
+                        </mat-menu>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="detail">
+                    <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i *ngIf="element?.groupRow" class="fa fa-chevron-down"></i>
+                        <i *ngIf="!element?.groupRow" class="fa fa-minus"></i>
+                    </mat-cell>
+                </ng-container>
+                <!-- Expanded Content Column - The detail row is made up of this one column -->
+                <ng-container matColumnDef="expandedDetail" class="group-table">
+                    <mat-cell *matCellDef="let group" class="p-0 full-width-cell">
+                        <!-- Position Column -->
+                        <div *ngIf="group.element?.groupRow" class="group-area element-row mat-ripple mat-row">
+                            <ng-container *ngFor="let data of group.element?.groupRow">
+
+                                <mat-cell> {{data.position}} </mat-cell>
+                                <mat-cell><i class="material-icons">
+                                    {{data.type === 'template' ? 'view_quilt' : 'folder'}}
+                                </i></mat-cell>
+                                <mat-cell> {{data.wallboardName}}
+                                    <span class="group-set-main">
+                                    <span class="group-set">
+                                        <label>Scroll</label>
+                                        <select>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </span>
+                                    <span class="group-set">
+                                        <label>Time/sec</label>
+                                        <select>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                    </select>
+
+                                    </span>
+                                    <span class="group-set">
+                                        <label>Order</label>
+                                        <select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </span>
+                                 </span>
+                                </mat-cell>
+                                <mat-cell> {{data.createdOn}} </mat-cell>
+                                <mat-cell> {{data.createdBy}} </mat-cell>
+                                <mat-cell>
+                                    <mat-checkbox [(ngModel)]="data.active"></mat-checkbox>
+                                </mat-cell>
+                                <mat-cell><a href="{{data.link}}"><i class="fa fa-link"></i> </a></mat-cell>
+                                <mat-cell *ngIf="data.groupRow"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </mat-cell>
+                                <mat-cell *ngIf="!data.groupRow"><i class="fa fa-minus" aria-hidden="true"></i>
+                                </mat-cell>
+
+                            </ng-container>
+                        </div>
+
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="groupColumns"></mat-header-row>
+                <mat-row
+                        *matRowDef="let row; columns: groupColumns;"
+                        matRipple
+                        class="element-row"
+                        [class.expanded]="expandedElement == row"
+                        (click)="expandedElement = row;"></mat-row>
+
+                <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+                         [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+                         style="overflow: hidden">
+                </mat-row>
+            </mat-table>
+
+
+            <!--Manage Wallboard-->
+
+            <mat-table #table [dataSource]="dataSource" *ngIf="wallboard && !group" class="col-sm-12 template-table">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef> No</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="material-icons">
+
+                        {{element.type === 'template' ? 'view_quilt' : 'folder'}}
+                    </i></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="wallboardName">
+                    <mat-header-cell *matHeaderCellDef> wallboard Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.wallboardName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="createdOn">
+                    <mat-header-cell *matHeaderCellDef> Created On</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdOn}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="createdBy">
+                    <mat-header-cell *matHeaderCellDef> Created By</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="active">
+                    <mat-header-cell *matHeaderCellDef> Activate</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-checkbox [(ngModel)]="element.active"></mat-checkbox>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="link">
+                    <mat-header-cell *matHeaderCellDef> Link</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><a [matMenuTriggerFor]="beforeMenu"><i
+                            class="fa fa-link"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <a mat-menu-item href="{{element.link}}">Preview</a>
+                            <button mat-menu-item>Copy Link</button>
+                        </mat-menu>
+
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef> Edit</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="fa fa-pencil" aria-hidden="true"></i>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="clone">
+                    <mat-header-cell *matHeaderCellDef> Clone</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="fa fa-clone" aria-hidden="true"></i>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="password">
+                    <mat-header-cell *matHeaderCellDef> Password</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <a [matMenuTriggerFor]="beforeMenu"><i class="fa fa-lock" aria-hidden="true"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <button mat-menu-item>Set Password</button>
+                            <button mat-menu-item>Copy Password</button>
+                            <button mat-menu-item>Change Password</button>
+                            <button mat-menu-item>Remove Password</button>
+                        </mat-menu>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef> delete</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <i class="fa fa-trash"></i>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="wallboardColumn"></mat-header-row>
+                <mat-row
+                        *matRowDef="let row; columns: wallboardColumn;"
+                        matRipple
+                        class="element-row"
+                ></mat-row>
+
+                <mat-row *matRowDef="let row; when: isExpansionDetailRow"
+                         style="overflow: hidden; display: none">
+                </mat-row>
+            </mat-table>
+
+
+            <!--Pending Wallboard-->
+
+            <mat-table #table [dataSource]="dataSource" *ngIf="pendingWallboard && !group"
+                       class="col-sm-12 template-table">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef> No</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="material-icons">view_quilt
+                    </i></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="wallboardName">
+                    <mat-header-cell *matHeaderCellDef> wallboard Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.wallboardName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="createdOn">
+                    <mat-header-cell *matHeaderCellDef> Created On</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdOn}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="createdBy">
+                    <mat-header-cell *matHeaderCellDef> Created By</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="active">
+                    <mat-header-cell *matHeaderCellDef> Activate</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-checkbox [(ngModel)]="element.active"></mat-checkbox>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="level">
+                    <mat-header-cell *matHeaderCellDef> Level</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        1
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="link">
+                    <mat-header-cell *matHeaderCellDef> Link</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><a [matMenuTriggerFor]="beforeMenu"><i
+                            class="fa fa-link"></i></a>
+                        <!--<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>-->
+                        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu-dark">
+                            <a mat-menu-item href="{{element.link}}">Preview</a>
+                            <button mat-menu-item>Copy Link</button>
+                        </mat-menu>
+
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef> Edit</mat-header-cell>
+                    <mat-cell *matCellDef="let element"><i class="fa fa-pencil" aria-hidden="true"></i>
+
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef> delete</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <i class="fa fa-trash"></i>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="pendingWallboardColumn"></mat-header-row>
+                <mat-row
+                        *matRowDef="let row; columns: pendingWallboardColumn;"
+                        matRipple
+                        class="element-row"
+                ></mat-row>
+
+                <mat-row *matRowDef="let row; when: isExpansionDetailRow"
+                         style="overflow: hidden; display: none">
+                </mat-row>
+            </mat-table>
+
+
+        </div>
+
+        <!--<div class="test-trigger">-->
+        <!--<button mat-raised-button-->
+        <!--(click)="wallboard = true; group = false; main = false ; pendingWallboard = false">Manage Wallboard-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="wallboard = false; group = true; main = false; pendingWallboard = false">-->
+        <!--Group Manage-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="wallboard = false; group = false; main = false; pendingWallboard = true">-->
+        <!--unfineshed Wallboards-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="wallboard = false; group = false; main = true; pendingWallboard = false">-->
+        <!--Main-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="deleteConfirm()">-->
+        <!--Delete-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="saveData()">-->
+        <!--Save and Exit-->
+        <!--</button>-->
+        <!--<button mat-raised-button (click)="confirm()">-->
+        <!--Incompatible-->
+        <!--</button>-->
+        <!--</div>-->
+    </div>
+</div>

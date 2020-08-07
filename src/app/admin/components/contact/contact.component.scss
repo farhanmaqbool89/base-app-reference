@@ -1,0 +1,19 @@
+.contact-info{
+  img{
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 8px 0 0;
+    border-radius: 50%;
+    text-align: center;
+  }
+  td {
+    line-height: 40px;
+  }
+  table {
+    th{
+      border: 0;
+    }
+  }
+}

@@ -1,0 +1,279 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Autocomplete</h2>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple autocomplete</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="simpleAutocomplete = !simpleAutocomplete">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="simpleAutocomplete">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+ <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Pick one"</span>
+           <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Number"</span>
+           <span class="hljs-attr">matInput</span>
+           [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">"myControl"</span>
+           [<span class="hljs-attr">matAutocomplete</span>]=<span class="hljs-string">"auto"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-autocomplete</span> #<span class="hljs-attr">auto</span>=<span class="hljs-string">"matAutocomplete"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let option of options"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"option"</span>&gt;</span>
+                                        &#123; &#123; option &#125;&#125;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-option</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-autocomplete</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+                                    </pre>
+
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #tsText>
+<span class="hljs-keyword">import</span> &#123; Component &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> &#123; FormControl &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
+
+<span class="hljs-comment">/**
+ * @title Simple autocomplete
+ */</span>
+<span class="hljs-meta">@Component</span>&#40;&#123;
+        selector: <span class="hljs-string">'autocomplete-simple-example'</span>,
+        templateUrl: <span class="hljs-string">'autocomplete-simple-example.html'</span>,
+        styleUrls: [<span class="hljs-string">'autocomplete-simple-example.css'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AutocompleteSimpleExample &#123;
+    myControl = <span class="hljs-keyword">new</span> FormControl();
+    options: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">'One'</span>, <span class="hljs-string">'Two'</span>, <span class="hljs-string">'Three'</span>];
+}
+                                    </pre>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+
+                        </mat-tab-group>
+
+
+
+
+                <form>
+                    <mat-form-field appearance="outline" class="col-md-12">
+                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+                               [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+
+                    </mat-card>
+                    <div class="main-tab-area">
+                        <div class="code-header mat-card">
+                            <h3>Option groups autocomplete with Search Filter</h3>
+                            <button mat-icon-button matTooltip="View Code" class="float-right"
+                                    (click)="optiongroupAutocomplete = !optiongroupAutocomplete">
+                                <mat-icon>code</mat-icon>
+                            </button>
+                        </div>
+                        <mat-card class="main-outer-card">
+
+                                    <mat-tab-group *ngIf="optiongroupAutocomplete">
+                                        <mat-tab label="HTML">
+                                            <div class="docs-source">
+                                                <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                                    <mat-icon>content_copy</mat-icon>
+                                                </button>
+                                                <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">"stateForm"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+           <span class="hljs-attr">matInput</span>
+           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"States Group"</span>
+           <span class="hljs-attr">formControlName</span>=<span class="hljs-string">"stateGroup"</span>
+           <span class="hljs-attr">required</span>
+           [<span class="hljs-attr">matAutocomplete</span>]=<span class="hljs-string">"autoGroup"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-autocomplete</span> #<span class="hljs-attr">autoGroup</span>=<span class="hljs-string">"matAutocomplete"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-optgroup</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let group of stateGroupOptions | async"</span> [<span class="hljs-attr">label</span>]=<span class="hljs-string">"group.letter"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mat-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let name of group.names"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"name"</span>&gt;</span>
+                                                    &#123; &#123; name &#125; &#125;
+                                                    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-optgroup</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-autocomplete</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+                                                </pre>
+
+                                            </div>
+                                        </mat-tab>
+
+                                        <mat-tab label="TS">
+                                            <div class="docs-source">
+                                                <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                                    <mat-icon>content_copy</mat-icon>
+                                                </button>
+                                                <pre #tsText>
+<span class="hljs-keyword">import</span> &#123; Component, OnInit} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> &#123;FormBuilder, FormGroup} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
+<span class="hljs-keyword">import</span> &#123;Observable} <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs'</span>;
+<span class="hljs-keyword">import</span> &#123;startWith, map} <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs/operators'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> StateGroup &#123;
+            letter: <span class="hljs-built_in">string</span>;
+            names: <span class="hljs-built_in">string</span>[];
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> _filter = (opt: <span class="hljs-built_in">string</span>[], value: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span>[] =&gt; &#123;
+            <span class="hljs-keyword">const</span> filterValue = value.toLowerCase();
+
+            <span class="hljs-keyword">return</span> opt.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.toLowerCase().indexOf(filterValue) === <span class="hljs-number">0</span>);
+};
+
+<span class="hljs-comment">/**
+ * @title Option groups autocomplete
+ */</span>
+<span class="hljs-meta">@Component</span>( &#123;
+            selector: <span class="hljs-string">'autocomplete-optgroup-example'</span>,
+            templateUrl: <span class="hljs-string">'./autocomplete-optgroup-example.html'</span>,
+            styleUrls: [<span class="hljs-string">'./autocomplete-optgroup-example.css'</span>],
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AutocompleteOptgroupExample <span class="hljs-keyword">implements</span> OnInit &#123;
+                                                    stateForm: FormGroup = <span class="hljs-keyword">this</span>._formBuilder.group(&#123;
+    stateGroup: <span class="hljs-string">''</span>,
+  });
+
+  stateGroups: StateGroup[] = [&#123;
+    letter: <span class="hljs-string">'A'</span>,
+    names: [<span class="hljs-string">'Alabama'</span>, <span class="hljs-string">'Alaska'</span>, <span class="hljs-string">'Arizona'</span>, <span class="hljs-string">'Arkansas'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'C'</span>,
+    names: [<span class="hljs-string">'California'</span>, <span class="hljs-string">'Colorado'</span>, <span class="hljs-string">'Connecticut'</span>]
+  }, &#123;
+                    letter: <span class="hljs-string">'D'</span>,
+                            names: [<span class="hljs-string">'Delaware'</span>]
+                    }, &#123;
+    letter: <span class="hljs-string">'F'</span>,
+    names: [<span class="hljs-string">'Florida'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'G'</span>,
+    names: [<span class="hljs-string">'Georgia'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'H'</span>,
+    names: [<span class="hljs-string">'Hawaii'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'I'</span>,
+    names: [<span class="hljs-string">'Idaho'</span>, <span class="hljs-string">'Illinois'</span>, <span class="hljs-string">'Indiana'</span>, <span class="hljs-string">'Iowa'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'K'</span>,
+    names: [<span class="hljs-string">'Kansas'</span>, <span class="hljs-string">'Kentucky'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'L'</span>,
+    names: [<span class="hljs-string">'Louisiana'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'M'</span>,
+    names: [<span class="hljs-string">'Maine'</span>, <span class="hljs-string">'Maryland'</span>, <span class="hljs-string">'Massachusetts'</span>, <span class="hljs-string">'Michigan'</span>,
+      <span class="hljs-string">'Minnesota'</span>, <span class="hljs-string">'Mississippi'</span>, <span class="hljs-string">'Missouri'</span>, <span class="hljs-string">'Montana'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'N'</span>,
+    names: [<span class="hljs-string">'Nebraska'</span>, <span class="hljs-string">'Nevada'</span>, <span class="hljs-string">'New Hampshire'</span>, <span class="hljs-string">'New Jersey'</span>,
+      <span class="hljs-string">'New Mexico'</span>, <span class="hljs-string">'New York'</span>, <span class="hljs-string">'North Carolina'</span>, <span class="hljs-string">'North Dakota'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'O'</span>,
+    names: [<span class="hljs-string">'Ohio'</span>, <span class="hljs-string">'Oklahoma'</span>, <span class="hljs-string">'Oregon'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'P'</span>,
+    names: [<span class="hljs-string">'Pennsylvania'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'R'</span>,
+    names: [<span class="hljs-string">'Rhode Island'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'S'</span>,
+    names: [<span class="hljs-string">'South Carolina'</span>, <span class="hljs-string">'South Dakota'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'T'</span>,
+    names: [<span class="hljs-string">'Tennessee'</span>, <span class="hljs-string">'Texas'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'U'</span>,
+    names: [<span class="hljs-string">'Utah'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'V'</span>,
+    names: [<span class="hljs-string">'Vermont'</span>, <span class="hljs-string">'Virginia'</span>]
+  }, &#123;
+    letter: <span class="hljs-string">'W'</span>,
+    names: [<span class="hljs-string">'Washington'</span>, <span class="hljs-string">'West Virginia'</span>, <span class="hljs-string">'Wisconsin'</span>, <span class="hljs-string">'Wyoming'</span>]
+  }];
+
+  stateGroupOptions: Observable&lt;StateGroup[]&gt;;
+
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> _formBuilder: FormBuilder</span>) &#123;}
+
+  ngOnInit() &#123;
+    <span class="hljs-keyword">this</span>.stateGroupOptions = <span class="hljs-keyword">this</span>.stateForm.get(<span class="hljs-string">'stateGroup'</span>)!.valueChanges
+      .pipe(
+        startWith(<span class="hljs-string">''</span>),
+        map(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-keyword">this</span>._filterGroup(value))
+      );
+  }
+                                                </pre>
+                                            </div>
+                                        </mat-tab>
+
+                                        <mat-tab label="CSS/SCSS">
+                                            <div class="docs-source">
+                                                <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                                    <mat-icon>content_copy</mat-icon>
+                                                </button>
+                                                <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                            </div>
+                                        </mat-tab>
+                                    </mat-tab-group>
+
+                <form [formGroup]="stateForm">
+                    <mat-form-field appearance="outline" class="col-md-12">
+                        <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+                        <mat-autocomplete #autoGroup="matAutocomplete">
+                            <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                                <mat-option *ngFor="let name of group.names" [value]="name">
+                                    {{name}}
+                                </mat-option>
+                            </mat-optgroup>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+                    </mat-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

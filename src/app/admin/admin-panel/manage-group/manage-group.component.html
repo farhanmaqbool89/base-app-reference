@@ -1,0 +1,162 @@
+<div class="row m-0 ">
+    <div class="col-md-12">
+        <div class="admin-panel">
+            <div class="table-top-bar">
+                <div class="row">
+                    <div class="board-heading col-md-3">
+                        <h2>Manage Dashboard Group</h2>
+                    </div>
+                    <div class="table-bar-right col-md-9">
+
+                        <div class="filter-section">
+                            <div class="form-group search-group">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Search">
+                                    <mat-icon>search</mat-icon>
+                                </mat-form-field>
+
+                            </div>
+                            <button mat-flat-button color="primary">
+                                <mat-icon>filter_list</mat-icon>
+                            </button>
+                            <button mat-flat-button
+                                    color="primary">
+                                <mat-icon>library_add</mat-icon>
+                                Add Group
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Manage Group-->
+            <mat-accordion>
+
+                <ul class="top-heading group-list">
+                    <li>Group Name</li>
+                    <li>Created On</li>
+                    <li>Created By</li>
+                </ul>
+                <mat-expansion-panel *ngFor="let data of manageData">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <ul class="group-list">
+                                <li>{{data.wallboardName}}</li>
+                                <li>{{data.createdOn}}</li>
+                                <li>{{data.createdBy}}</li>
+                            </ul>
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+
+                    <div class="manage-dashboard">
+                        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                            <div class="example-box wallboard-list-items" *ngFor="let list of data.groupRow" cdkDrag>
+                                <!--<div class="example-custom-placeholder" *cdkDragPlaceholder></div>-->
+                                <div cdkDragHandle>
+                                </div>
+
+                                <div class="list-left">{{list.wallboardName}}</div>
+                                <div class="list-right table-trigger">
+                                     <span class="list-trigger-area">
+                                         {{checked ? 'Active' : 'Not Active'}}
+                                         <mat-slide-toggle (change)="onChange($event)"
+                                                           [checked]="checked"></mat-slide-toggle>
+
+                                        <button mat-mini-fab><i class="fa fa-pencil"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-files-o"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-link"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-close"
+                                                                aria-hidden="true"></i>
+</button>
+                                     </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="group-action">
+                        <div class="list-right table-trigger">
+                            <!--<div class="group-action-option">-->
+                            <span class="group-set-main">
+                                    <span class="group-set">
+                                        <label>Scroll</label>
+                                        <select>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </span>
+                                    <span class="group-set">
+                                        <label>Time / sec</label>
+                                        <select>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                    </select>
+
+                                    </span>
+
+                                 </span>
+                            <!--</div>-->
+
+                            <span class="list-trigger-area">
+                                         {{checked ? 'Active' : 'Not Active'}}
+                                <mat-slide-toggle (change)="onChange($event)"
+                                                  [checked]="checked"></mat-slide-toggle>
+
+                                        <button mat-mini-fab (click)="openModal(newGroup)"><i class="fa fa-plus"
+                                                                                              aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-link"
+                                                                aria-hidden="true"></i>
+</button>
+                                        <button mat-mini-fab><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i>
+</button>
+                                     </span>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+            <!--./Manage Group-->
+
+
+        </div>
+    </div>
+</div>
+
+<ng-template #newGroup>
+    <div class="confirm-dialog-container">
+        <div class="content-container">
+            <div class="mat-card-header">
+                <mat-icon id="close-icon" (click)="onClose()">close</mat-icon>
+                <h4 class="content-span full-width">Add Group</h4>
+            </div>
+            <div class="dialog-content">
+                <form class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <mat-label>Group Name</mat-label>
+                        <mat-form-field appearance="outline" >
+                            <input matInput >
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-label>Add dashboard To Group</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput >
+                        </mat-form-field>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>

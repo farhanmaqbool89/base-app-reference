@@ -1,0 +1,296 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Chips & Icons</h2>
+                </div>
+                    <div class="main-tab-area">
+                        <div class="code-header mat-card">
+                            <h3>Simple progress bar</h3>
+                            <button mat-icon-button matTooltip="View Code" class="float-right"
+                                    (click)="simpleBar = !simpleBar">
+                                <mat-icon>code</mat-icon>
+                            </button>
+                        </div>
+                        <mat-card class="main-outer-card">
+                            <mat-tab-group *ngIf="simpleBar">
+                                <mat-tab label="HTML">
+                                    <div class="docs-source">
+                                        <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                            <mat-icon>content_copy</mat-icon>
+                                        </button>
+
+                                            <pre #htmlText>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">mat-progress-bar</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"determinate"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                                            </pre>
+                                     </div>
+
+                                </mat-tab>
+
+                                <mat-tab label="TS">
+                                    <div class="docs-source">
+                                        <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                            <mat-icon>content_copy</mat-icon>
+                                        </button>
+                                        <p #tsText class="comment-text">/** No TS for this example */</p>
+                                    </div>
+                                </mat-tab>
+
+                                <mat-tab label="CSS/SCSS">
+                                    <div class="docs-source">
+                                        <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                            <mat-icon>content_copy</mat-icon>
+                                        </button>
+                                        <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                    </div>
+                                </mat-tab>
+
+                            </mat-tab-group>
+
+                            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+                        </mat-card>
+                    </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple Spinner</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="simpleSpinner = !simpleSpinner">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="simpleSpinner">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">mat-spinner</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mat-spinner</span>&gt;</span>
+                                    </pre>
+                                </div>
+
+                            </mat-tab>
+
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                        </mat-tab-group>
+
+                        <mat-spinner></mat-spinner>
+
+                    </mat-card>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Configurable progress Bar/Spinner</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="configurableSpinnerBar = !configurableSpinnerBar">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="configurableSpinnerBar">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+
+                                    <pre #htmlText>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Color:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"color"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+          Primary
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+          Accent
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"warn"</span>&gt;</span>
+          Warn
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Mode:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"mode"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"determinate"</span>&gt;</span>
+          Determinate
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"indeterminate"</span>&gt;</span>
+          Indeterminate
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"buffer"</span>&gt;</span>
+          Buffer
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"query"</span>&gt;</span>
+          Query
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"mode === 'determinate' || mode === 'buffer'"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Progress:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-slider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mat-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"mode === 'buffer'"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>&gt;</span>Buffer:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-slider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"bufferValue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mat-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-card-content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-card-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-h2"</span>&gt;</span>Result<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-section"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-progress-bar</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">"example-margin"</span>
+          [<span class="hljs-attr">color</span>]=<span class="hljs-string">"color"</span>
+          [<span class="hljs-attr">mode</span>]=<span class="hljs-string">"mode"</span>
+          [<span class="hljs-attr">value</span>]=<span class="hljs-string">"value"</span>
+          [<span class="hljs-attr">bufferValue</span>]=<span class="hljs-string">"bufferValue"</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-progress-bar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card-content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-card</span>&gt;</span>
+
+                                    </pre>
+                                </div>
+
+                            </mat-tab>
+
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #tsText >
+<span class="hljs-keyword">import</span> &#123;Component&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> &#123;ThemePalette&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/core'</span>;
+<span class="hljs-keyword">import</span> &#123;ProgressBarMode&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/progress-bar'</span>;
+
+<span class="hljs-comment">/**
+ * @title Configurable progress-bar
+ */</span>
+<span class="hljs-meta">@Component</span>&#40;&#123;
+  selector: <span class="hljs-string">'progress-bar-configurable-example'</span>,
+  templateUrl: <span class="hljs-string">'progress-bar-configurable-example.html'</span>,
+  styleUrls: &#91;<span class="hljs-string">'progress-bar-configurable-example.css'</span>&#93;,
+&#125;&#41;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ProgressBarConfigurableExample &#123;
+         color: ThemePalette &#61; <span class="hljs-string">'primary'</span>;
+         mode: ProgressBarMode &#61; <span class="hljs-string">'determinate'</span>;
+         value &#61; <span class="hljs-number">50</span>;
+         bufferValue &#61; <span class="hljs-number">75</span>;
+        &#125;
+                                    </pre>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+
+
+
+                        </mat-tab-group>
+
+
+                            <section>
+                                <label>Color:</label>
+                                <mat-radio-group [(ngModel)]="color">
+                                    <mat-radio-button value="primary">
+                                        Primary
+                                    </mat-radio-button>
+                                    <mat-radio-button value="accent">
+                                        Accent
+                                    </mat-radio-button>
+                                    <mat-radio-button value="warn">
+                                        Warn
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </section>
+
+                            <section>
+                                <label>Mode:</label>
+                                <mat-radio-group [(ngModel)]="mode">
+                                    <mat-radio-button value="determinate">
+                                        Determinate
+                                    </mat-radio-button>
+                                    <mat-radio-button value="indeterminate">
+                                        Indeterminate
+                                    </mat-radio-button>
+                                    <mat-radio-button value="buffer">
+                                        Buffer
+                                    </mat-radio-button>
+                                    <mat-radio-button value="query">
+                                        Query
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </section>
+
+                            <section *ngIf="mode === 'determinate' || mode === 'buffer'">
+                                <label>Progress:</label>
+                                <mat-slider [(ngModel)]="value"></mat-slider>
+                            </section>
+                            <section *ngIf="mode === 'buffer'">
+                                <label>Buffer:</label>
+                                <mat-slider [(ngModel)]="bufferValue"></mat-slider>
+                            </section>
+
+<hr>
+                        <p><strong>Result</strong></p>
+                                <mat-progress-bar
+
+                                        [color]="color"
+                                        [mode]="mode"
+                                        [value]="value"
+                                        [bufferValue]="bufferValue">
+                                </mat-progress-bar>
+                                <hr>
+                                <div class="clearfix"></div>
+                                <mat-progress-spinner
+                                        class="example-margin"
+                                        [color]="color"
+                                        [mode]="mode"
+                                        [value]="value">
+                                </mat-progress-spinner>
+
+                                <p *ngIf="mode === 'buffer' || mode === 'query'">Buffer and Query mode only for Progress
+                                    bar</p>
+                        </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

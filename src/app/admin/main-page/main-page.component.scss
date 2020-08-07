@@ -1,0 +1,38 @@
+.tab-slider--container{
+  //height: 100%;
+
+  .tab-slider--body{
+    //height: 100%;
+  }
+}
+.tab-slider--nav {
+  position: relative;
+  ul.tab-slider--tabs {
+    padding: 0;
+    text-align: center;
+    margin: 0;
+
+    li{
+      list-style: none;
+      display:inline-block;
+      background: rgba(0,0,0,.2);
+      width: 124px;
+      margin-left: 1px;
+      padding: 2px;
+      height: 4px;
+      cursor: pointer;
+      border-radius: 10px;
+      &.active{
+        background: rgba(0,0,0,.4);
+      }
+    }
+  }
+}
+.logo-container.bottom-logo {
+  position: absolute;
+  bottom: -5px;
+  right: 5px;
+  img{
+    height: 25px;
+  }
+}

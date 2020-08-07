@@ -1,0 +1,156 @@
+<div class="container main-grid-display main-custom-container">
+    <div class="row">
+        <div class="panel-body">
+            <div class="sub-heading">
+                <h2>Grid System</h2>
+            </div>
+        </div>
+
+
+        <div class="main-tab-area container-fluid">
+            <div class="code-header mat-card">
+                <h3>Grid column</h3>
+                <button mat-icon-button matTooltip="View Code" class="float-right"
+                        (click)="gridView = !gridView">
+                    <mat-icon>code</mat-icon>
+                </button>
+            </div>
+            <mat-card class="main-outer-card">
+                <mat-tab-group *ngIf="gridView">
+                    <mat-tab label="HTML">
+                        <div class="docs-source">
+                            <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+
+                            <pre #htmlText><code [highlight]="gridColumn"></code></pre>
+
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="TS">
+                        <div class="docs-source">
+                            <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+
+                            <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="CSS/SCSS">
+                        <div class="docs-source">
+                            <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+                            <p #cssText class="comment-text">/** No CSS for this example */</p>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                <div class="container-fluid">
+                    <div class="row show-grid">
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                        <div class="col-md-1">.col-md-1</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-4">.col-md-4</div>
+                        <div class="col-md-4">.col-md-4</div>
+                        <div class="col-md-4">.col-md-4</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-4">.col-md-4</div>
+                        <div class="col-md-8">.col-md-8</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-6">.col-md-6</div>
+                        <div class="col-md-6">.col-md-6</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-12">.col-md-12</div>
+                    </div>
+
+                </div>
+
+            </mat-card>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="main-tab-area container-fluid">
+            <div class="code-header mat-card">
+                <h3>Offsetting columns</h3>
+                <button mat-icon-button matTooltip="View Code" class="float-right"
+                        (click)="offsettingGridView = !offsettingGridView">
+                    <mat-icon>code</mat-icon>
+                </button>
+            </div>
+            <mat-card class="main-outer-card">
+                <mat-tab-group *ngIf="offsettingGridView">
+                    <mat-tab label="HTML">
+                        <div class="docs-source">
+                            <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+
+                            <pre #htmlText><code [highlight]="offsettingGrid"></code></pre>
+
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="TS">
+                        <div class="docs-source">
+                            <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+
+                            <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="CSS/SCSS">
+                        <div class="docs-source">
+                            <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+                            <p #cssText class="comment-text">/** No CSS for this example */</p>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                <div class="container-fluid">
+                    <p>Move columns to the right using <code>.col-md-offset-*</code> classes. </p>
+                    <div class="row show-grid">
+                        <div class="col-md-4">.col-md-4</div>
+                        <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                    </div>
+
+                    <div class="row show-grid">
+                        <div class="col-md-6 offset-md-3">
+                            .col-md-6 .offset-md-3
+                        </div>
+                    </div>
+
+                </div>
+
+            </mat-card>
+
+
+        </div>
+    </div>
+</div>

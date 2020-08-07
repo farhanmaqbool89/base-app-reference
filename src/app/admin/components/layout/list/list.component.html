@@ -1,0 +1,161 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>List</h2>
+        </div>
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Simple Angular Material List</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="angularListView = !angularListView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="angularListView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="angularListSource"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+              <mat-list role="list">
+                <mat-list-item role="listitem">Item 1</mat-list-item>
+                <mat-list-item role="listitem">Item 2</mat-list-item>
+                <mat-list-item role="listitem">Item 3</mat-list-item>
+                <mat-list-item role="listitem">Item 4</mat-list-item>
+                <mat-list-item role="listitem">Item 5</mat-list-item>
+              </mat-list>
+            </mat-card>
+          </div>
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>List with selection</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="selectionListView = !selectionListView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="selectionListView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="selectionListSource"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #tsText><code [highlight]="selectionListSourceTS"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+            <mat-selection-list #shoes>
+              <mat-list-option *ngFor="let shoe of typesOfShoes">
+                {{shoe}}
+              </mat-list-option>
+            </mat-selection-list>
+
+            <p>
+              Options selected: {{shoes.selectedOptions.selected.length}}
+            </p>
+          </mat-card>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Simple Bootstrap Group List</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="bootstrapListView = !bootstrapListView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="bootstrapListView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="bootstrapListSource"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+              <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

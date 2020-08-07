@@ -1,0 +1,85 @@
+<div class="container-fluid main-page-area">
+    <main>
+        <div class="chart-col">
+            <div class="main-page-content row">
+                <div class="col-sm-12 home-widget">
+                    <div class="row data-card-area">
+                        <!--Graph area-->
+                        <div class="graph-area col-md-12">
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-4 pr1">
+                            <mat-card class="data-card">
+                                <legend>Service Level Agreement</legend>
+                                <h2 class="blue-color">89%</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4 pl1 pr1">
+                            <mat-card class="data-card">
+                                <legend>Calls Answered Rate</legend>
+                                <h2 class="green-color">97.2%</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4 pl1">
+                            <mat-card class="data-card call-queue">
+                                <legend>Calls Abandoned Rate</legend>
+                                <h2 class="orange-color">5.6%</h2>
+                            </mat-card>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12 home-widget">
+                    <div class="row data-card-area agents-table-area">
+                        <!--Graph area-->
+                        <div class="graph-area col-md-12">
+                            <mat-card>
+                                <strong class="mb-4">Logged in Agents</strong>
+                                <div class="table-responsive contact-info login-agents">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Agent Name</th>
+                                            <th>Ext</th>
+                                            <th>Current
+                                                State</th>
+                                            <th>State
+                                                Duration</th>
+                                            <th>Answered
+                                                Calls</th>
+                                            <th>Answered
+Call Rate</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let contacts of contact">
+                                            <td><img src="{{contacts.avatar}}" class="img-thumbnail"></td>
+                                            <td>{{contacts.name}}</td>
+                                            <td>{{contacts.ext}}</td>
+                                            <td *ngIf="contacts.currentState !== 'notReady'" [ngClass]="{'ready': contacts.currentState == 'ready',
+                                             'talking': contacts.currentState == 'Talking', 'working': contacts.currentState == 'working',
+                                              'reserved': contacts.currentState == 'reserved'} "><span>{{contacts.currentState}}</span></td>
+                                            <td class="not-ready" *ngIf="contacts.currentState == 'notReady'"><span>Not Ready</span></td>
+                                            <td>{{contacts.stateDuration}}</td>
+                                            <td>{{contacts.answeredCalls}}</td>
+                                            <td>{{contacts.answeredCallRate}}%</td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </mat-card>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+

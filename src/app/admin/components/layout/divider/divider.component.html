@@ -1,0 +1,63 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+                    <h2>Divider</h2>
+                </div>
+
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple Divider</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="codeView = !codeView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="codeView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="deviderHTML"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <mat-list>
+                            <mat-list-item>Item 1</mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>Item 2</mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>Item 3</mat-list-item>
+                        </mat-list>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

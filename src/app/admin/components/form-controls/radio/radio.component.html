@@ -1,0 +1,184 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Radio Buttons</h2>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Basic radios</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="basicRadioView = !basicRadioView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="basicRadioView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Select an option"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>Option 1<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span>Option 2<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+                                            </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+            <mat-radio-group>
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+              <mat-radio-button value="2">Option 2</mat-radio-button>
+            </mat-radio-group>
+          </mat-card>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Vertical radios</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="verticalradioView = !verticalradioView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="verticalradioView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span><span class="hljs-attr">class</span>=<span class="hljs-string">"vertical-radio"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Select an option"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>Option 1<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span>Option 2<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+                                            </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+            <mat-radio-group class="vertical-radio">
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+              <mat-radio-button value="2">Option 2</mat-radio-button>
+            </mat-radio-group>
+          </mat-card>
+        </div>
+
+
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Radios with ngModel</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="ngModelRadioView = !ngModelRadioView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="ngModelRadioView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-radio-group-label"</span>&gt;</span>Pick your favorite season<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span>
+  <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-radio-group-label"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"example-radio-group"</span>
+  [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favoriteSeason"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-radio-button"</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let season of seasons"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"season"</span>&gt;</span>
+                    {{season}}
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Your favorite season is: {{favoriteSeason}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                            </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #tsText>
+<span class="hljs-keyword">import</span> &#123;Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-comment">/**
+ * @title Radios with ngModel
+ */</span>
+<span class="hljs-meta">@Component</span>(&#123;
+                    selector: <span class="hljs-string">'radio-ng-model-example'</span>,
+                    templateUrl: <span class="hljs-string">'radio-ng-model-example.html'</span>,
+                    styleUrls: [<span class="hljs-string">'radio-ng-model-example.css'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> RadioNgModelExample &#123;
+                    favoriteSeason: <span class="hljs-built_in">string</span>;
+                    seasons: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">'Winter'</span>, <span class="hljs-string">'Spring'</span>, <span class="hljs-string">'Summer'</span>, <span class="hljs-string">'Autumn'</span>];
+}
+                  </pre>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+            <mat-radio-group [(ngModel)]="favoriteSeason">
+              <mat-radio-button  *ngFor="let season of seasons" [value]="season">
+                {{season}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <hr>
+              <p>Your favorite season is: {{favoriteSeason}}</p>
+          </mat-card>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+                    <h2>Tabs</h2>
+                </div>
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Basic use of the tab group</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="simpleTabView = !simpleTabView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="simpleTabView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="simpleTabeSource"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <mat-tab-group>
+                            <mat-tab label="First">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor incididunt ut labore.
+                            </mat-tab>
+                            <mat-tab label="Second">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.
+                            </mat-tab>
+                            <mat-tab label="Third">
+                                Enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.
+                            </mat-tab>
+                        </mat-tab-group>
+                    </mat-card>
+                </div>
+
+
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Dynamic Tabs Group with Loading</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="dynamicTabView = !dynamicTabView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="dynamicTabView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="dynamicTabHTML"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #tsText><code [highlight]="dynamicTabSourceTS"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <ng-container *ngIf="(asyncTabs | async) === null">
+                            Loading tabs...
+                        </ng-container>
+
+                        <mat-tab-group>
+                            <mat-tab *ngFor="let tab of asyncTabs | async">
+                                <ng-template mat-tab-label>{{tab.label}}</ng-template>
+                                {{tab.content}}
+                            </mat-tab>
+                        </mat-tab-group>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

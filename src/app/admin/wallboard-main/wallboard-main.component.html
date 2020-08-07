@@ -1,0 +1,123 @@
+<div class="container-fluid main-page-area">
+    <main [class]="theme">
+        <div class="chart-col">
+            <div class="main-page-content row">
+                <div class="col-md-4 col-sm-12 home-widget">
+                    <div class="main-message">
+                        <h1>Welcome and Good Morning</h1>
+                        <span>Have a great day ahead!</span>
+                    </div>
+                    <div class="row data-card-area">
+                        <div class="col-md-6 pr1">
+                            <mat-card class="data-card">
+                                <legend>Call Received</legend>
+                                <h2>981</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-6 pl1">
+                            <mat-card class="data-card">
+                                <legend>Call Answered</legend>
+                                <h2>942</h2>
+                            </mat-card>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6 pr1">
+                            <mat-card class="data-card call-queue">
+                                <legend>Call Queue</legend>
+                                <h2>23</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-6 pl1">
+                            <mat-card class="data-card call-abandoned">
+                                <legend>Call Abandoned</legend>
+                                <h2>16</h2>
+                            </mat-card>
+                        </div>
+                        <!--Graph area-->
+
+                        <div class="graph-area top-label col-md-12">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 home-widget">
+                    <div class="row data-card-area gauge-column">
+                        <!--Graph area-->
+                        <div class="graph-area gauge-chart col-md-12">
+                            <mat-card>
+                                <strong>Service level agreement</strong>
+
+                                <!--<div id="gauge">-->
+                                    <!--<div class="gauge-area">-->
+                                        <!--<span class="speedometer"></span>-->
+                                        <!--&lt;!&ndash;<span class="needle needle-rotate">&ndash;&gt;-->
+                                        <!--<span class="needle" [style.transform]="myTransform">-->
+                                        <!--</span>-->
+                                        <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                                        <!--<p><strong>{{gaugeLegendValue}}%</strong></p>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="legend-area">-->
+                                        <!--<ul>-->
+                                            <!--<li><= 40%</li>-->
+                                            <!--<li>> 40 & <= 70</li>-->
+                                            <!--<li>> 71 & <= 100</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<app-chart-gauge [gaugeChartData]="gaugeChartData"></app-chart-gauge>-->
+                            </mat-card>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6 pr1">
+                            <mat-card class="data-card average-talk">
+                                <img src="/assets/images/clock2.png" class="img-thumbnail">
+                                <legend>Average Talk Time</legend>
+                                <h2>4:32</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-6 pl1">
+                            <mat-card class="data-card long-talk">
+                                <img src="/assets/images/clock1.png" class="img-thumbnail">
+                                <legend>Longest Talk Time</legend>
+                                <h2>7:26</h2>
+                            </mat-card>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6 pr1">
+                            <mat-card class="data-card call-wait">
+                                <img src="/assets/images/clock4.png" class="img-thumbnail">
+                                <legend>Average Wait Time</legend>
+                                <h2>3:14</h2>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-6 pl1">
+                            <mat-card class="data-card long-wait">
+                                <img src="/assets/images/clock3.png" class="img-thumbnail">
+                                <legend>Longest Wait Time</legend>
+                                <h2>5:44</h2>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 home-widget">
+
+                    <div class="row data-card-area">
+                        <!--Graph area-->
+
+                        <div class="graph-area col-md-12">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+</div>

@@ -1,0 +1,167 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Slider</h2>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Configurable slider</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="codeView = !codeView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="codeView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="sliderHTML"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #tsText><code [highlight]="sliderTS"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          <mat-card-content>
+        <section>
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>Value</mat-label>
+              <input matInput type="number" placeholder="Value" [(ngModel)]="value">
+          </mat-form-field>
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>Min Value</mat-label>
+              <input matInput type="number" placeholder="Min value" [(ngModel)]="min">
+          </mat-form-field>
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>Max Value</mat-label>
+              <input matInput type="number" placeholder="Max value" [(ngModel)]="max">
+          </mat-form-field>
+          </div>
+          <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Step size</mat-label>
+            <input matInput type="number" placeholder="Step size" [(ngModel)]="step">
+          </mat-form-field>
+        </section>
+
+        <section>
+          <div class="form-group">
+          <mat-checkbox class="col-md-4"  [(ngModel)]="showTicks">Show ticks</mat-checkbox>
+          <mat-checkbox class="col-md-4"  [(ngModel)]="autoTicks" *ngIf="showTicks">
+            Auto ticks
+          </mat-checkbox>
+          <mat-form-field appearance="outline"  class="col-md-4" *ngIf="showTicks && !autoTicks">
+            <mat-label>Tick interval</mat-label>
+            <input matInput type="number" placeholder="Tick interval" [(ngModel)]="tickInterval">
+          </mat-form-field>
+          </div>
+        </section>
+
+        <section >
+          <mat-checkbox class="col-md-3"  [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
+          <mat-checkbox class="col-md-3" [(ngModel)]="vertical">Vertical</mat-checkbox>
+          <mat-checkbox class="col-md-3" [(ngModel)]="invert">Inverted</mat-checkbox>
+          <mat-checkbox class="col-md-3" [(ngModel)]="disabled">Disabled</mat-checkbox>
+        </section>
+
+        </mat-card-content>
+          </mat-card>
+        </div>
+
+        <mat-card class="result">
+          <mat-card-content>
+            <div class="sub-heading">
+              <h4>Result</h4>
+            </div>
+
+            <mat-slider class="col-sm-12"
+                    
+                    [disabled]="disabled"
+                    [invert]="invert"
+                    [max]="max"
+                    [min]="min"
+                    [step]="step"
+                    [thumbLabel]="thumbLabel"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="value"
+                    [vertical]="vertical">
+            </mat-slider>
+          </mat-card-content>
+        </mat-card>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Simple slider</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="codeViewSimpleSlider = !codeViewSimpleSlider">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="codeViewSimpleSlider">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <pre #htmlText><code [highlight]="simpleSlider"></code></pre>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          <div class="sub-heading">
+            <h4>Simple Slider</h4>
+          </div>
+          <mat-card-content>
+            <mat-slider class="col-md-12"></mat-slider>
+
+          </mat-card-content>
+        </mat-card>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+                    <h2>Cards</h2>
+                </div>
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Simple Card</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="sourceView = !sourceView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="sourceView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-card</span>&gt;</span>Simple card<span
+class="hljs-tag">&lt;/<span
+class="hljs-name">mat-card</span>&gt;</span>
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                        <mat-card>
+                            <p><strong>Simple Card</strong></p>
+                        </mat-card>
+                    </mat-card>
+                </div>
+
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Card with multiple sections</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="actionCardSourceView = !actionCardSourceView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="actionCardSourceView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText><code [highlight]="actionCard"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <mat-card-header>
+                            <mat-card-title>Cat</mat-card-title>
+                            <mat-card-subtitle>Quis Nostrud Exercitation</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/cica1.jpg" alt="cat">
+                        <mat-card-content>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                ex ea commodo consequat.
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

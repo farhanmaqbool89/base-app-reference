@@ -1,0 +1,224 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Checkbox</h2>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Simple Checkbox</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="simpleCheckbox = !simpleCheckbox">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="simpleCheckbox">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+                   <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span>&gt;</span>Check me!<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+                  </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <mat-checkbox>Check me!</mat-checkbox>
+          </mat-card>
+        </div>
+
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Checkbox configuration</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="configurationCheckbox = !configurationCheckbox">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="configurationCheckbox">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span>  [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"checked"</span>&gt;</span>Checked<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"indeterminate"</span>&gt;</span>Indeterminate<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> &gt;</span>Align:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-group</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"labelPosition"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"after"</span>&gt;</span>After<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mat-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"before"</span>&gt;</span>Before<span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-radio-group</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span>  [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"disabled"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Result<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mat-checkbox</span>
+
+          [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"checked"</span>
+          [(<span class="hljs-attr">indeterminate</span>)]=<span class="hljs-string">"indeterminate"</span>
+          [<span class="hljs-attr">labelPosition</span>]=<span class="hljs-string">"labelPosition"</span>
+          [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"disabled"</span>&gt;</span>
+        I'm a checkbox
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mat-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+
+                  </pre>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #tsText>
+                    <span class="hljs-keyword">import</span> &#123;Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-comment">/**
+ * @title Configurable checkbox
+ */</span>
+<span class="hljs-meta">@Component</span>(&#123;
+                    selector: <span class="hljs-string">'checkbox-configurable-example'</span>,
+                    templateUrl: <span class="hljs-string">'checkbox-configurable-example.html'</span>,
+                    styleUrls: [<span class="hljs-string">'checkbox-configurable-example.css'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CheckboxConfigurableExample &#123;
+                    checked = <span class="hljs-literal">false</span>;
+                    indeterminate = <span class="hljs-literal">false</span>;
+                    labelPosition: <span class="hljs-string">'before'</span> | <span class="hljs-string">'after'</span> = <span class="hljs-string">'after'</span>;
+                    disabled = <span class="hljs-literal">false</span>;
+}
+                  </pre>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+
+            </mat-tab-group>
+
+
+            <section>
+              <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+              <mat-checkbox [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+            </section>
+
+            <section class="left-space">
+              <label>Align:</label>
+              <mat-radio-group [(ngModel)]="labelPosition">
+                <mat-radio-button value="after">After</mat-radio-button>
+                <mat-radio-button value="before">Before</mat-radio-button>
+              </mat-radio-group>
+            </section>
+
+            <section>
+              <mat-checkbox [(ngModel)]="disabled">Disabled</mat-checkbox>
+            </section>
+            <hr>
+
+            <section>
+              <strong>Result</strong>
+              <hr>
+              <mat-checkbox
+                      [(ngModel)]="checked"
+                      [(indeterminate)]="indeterminate"
+                      [labelPosition]="labelPosition"
+                      [disabled]="disabled">
+                I'm a checkbox
+              </mat-checkbox>
+            </section>
+
+          </mat-card>
+        </div>
+
+
+        <!--<div class="checkbox-area">-->
+          <!--<mat-card>-->
+            <!--<mat-card-content>-->
+              <!--<div class="sub-heading">-->
+                <!--<h2>Checkbox configuration</h2>-->
+              <!--</div>-->
+
+              <!--<section>-->
+                <!--<mat-checkbox class="col-sm-6 col-md-3" [(ngModel)]="checked">Checked</mat-checkbox>-->
+                <!--<mat-checkbox class="col-sm-6 col-md-3" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>-->
+              <!--</section>-->
+
+              <!--<section>-->
+                <!--<label class="col-md-12">Align:</label>-->
+                <!--<mat-radio-group [(ngModel)]="labelPosition">-->
+                  <!--<mat-radio-button class="col-sm-6 col-md-3" value="after">After</mat-radio-button>-->
+                  <!--<mat-radio-button class="col-sm-6 col-md-3" value="before">Before</mat-radio-button>-->
+                <!--</mat-radio-group>-->
+              <!--</section>-->
+
+              <!--<section>-->
+                <!--<mat-checkbox [(ngModel)]="disabled">Disabled</mat-checkbox>-->
+              <!--</section>-->
+            <!--</mat-card-content>-->
+          <!--</mat-card>-->
+
+          <!--<mat-card class="result">-->
+            <!--<mat-card-content>-->
+              <!--<h2 class="example-h2">Result</h2>-->
+
+              <!--<section class="example-section">-->
+                <!--<mat-checkbox-->
+                        <!--class="example-margin"-->
+                        <!--[(ngModel)]="checked"-->
+                        <!--[(indeterminate)]="indeterminate"-->
+                        <!--[labelPosition]="labelPosition"-->
+                        <!--[disabled]="disabled">-->
+                  <!--I'm a checkbox-->
+                <!--</mat-checkbox>-->
+              <!--</section>-->
+            <!--</mat-card-content>-->
+          <!--</mat-card>-->
+
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</div>

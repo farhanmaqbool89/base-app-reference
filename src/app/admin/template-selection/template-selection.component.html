@@ -1,0 +1,283 @@
+<div class="container-fluid main-page-area page-height-selection">
+    <div class="sub-heading stepper-headings">
+        <h2>Selected Template</h2>
+        <p>Adding wallboard to group allows you to run multiple wallboards in horizontally with or without scrolling</p>
+    </div>
+
+    <form [formGroup]="firstFormGroup">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <mat-label>Type name of the wallboard</mat-label>
+                <mat-form-field  appearance="outline" >
+                    <input matInput #wallboardName maxlength="150" formControlName="firstCtrl"
+                           required>
+                </mat-form-field>
+
+
+                <small class="mat-hint">
+                    <mat-hint style="font-size: 100%"
+                              *ngIf="wallboardName.value.length > 0">{{wallboardName.value.length}} /
+                    </mat-hint>
+                    150 character
+                </small>
+            </div>
+        </div>
+    </form>
+
+    <div class="template-info">
+        <p>Please click on the <img src="/assets/images/add-small.png"> to add widgets and make settings as per your
+            requirements</p>
+        <!--<div class="theme-selection">-->
+        <!--<mat-form-field>-->
+        <!--<mat-label>Cars</mat-label>-->
+        <!--<select matNativeControl required>-->
+        <!--<option value="light">Light color theme (white)</option>-->
+        <!--<option value="dark">Dark color theme (dark)</option>-->
+        <!--</select>-->
+        <!--</mat-form-field>-->
+        <!--</div>-->
+    </div>
+    <!--Template One-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempOne'">
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Template Two-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempTwo'">
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class="page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Template Three-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempThree'">
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-100">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Template Four-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempFour'">
+        <div class="col-md-6 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-100">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-100">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--Template Five-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempFive'">
+        <div class="col-md-4 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-33">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+            <div class=" page-height mat-card h-33">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+            <div class=" page-height mat-card h-33">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-100">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Template Six-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempSix'">
+        <div class="col-md-6 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+            <div class="clearfix"></div>
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--Template Four-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempSeven'">
+        <div class="col-sm-12 home-widget">
+            <div class=" page-height mat-card h-50">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="page-height mat-card h-50">
+
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Template Eight-->
+    <div class="main-page-content row template-type-one" *ngIf="selectedTemplate == 'tempEight'">
+        <div class="col-sm-12 home-widget">
+            <div class=" page-height mat-card h-100">
+                <button mat-icon-button color="primary" class="add-component" (click)="openDialog()">
+                    <img src="/assets/images/add.png" class="img-thumbnail">
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="template-action row">
+        <div class="col-md-12">
+            <div class="action-area">
+                <button mat-raised-button class="gray-btn">Discard</button>
+                <button mat-raised-button class="green-btn">Save & Exit</button>
+                <button mat-raised-button class="dark-blue-btn">Preview in Browser</button>
+                <button mat-raised-button class="blue-btn">Save & Continue</button>
+            </div>
+        </div>
+    </div>
+
+</div>

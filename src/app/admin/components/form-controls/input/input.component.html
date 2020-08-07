@@ -1,0 +1,202 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Input Fields</h2>
+        </div>
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Basic Input Fields</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="basicInputView = !basicInputView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="basicInputView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span> <span class="hljs-attr">matInput</span> <span class="hljs-attr">appearance</span>=<span class="hljs-string">"outline"</span> &gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-label</span>&gt;</span>Favorite food<span class="hljs-tag">&lt;/<span class="hljs-name">mat-label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Ex. Pizza"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Sushi"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Favorite food" value="Sushi">
+            </mat-form-field>
+
+          </mat-card>
+        </div>
+
+
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Basic Textarea</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="basicTextareaView = !basicTextareaView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="basicTextareaView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span> <span class="hljs-attr">matInput</span> <span class="hljs-attr">appearance</span>=<span class="hljs-string">"outline"</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-label</span>&gt;</span>Leave a comment<span class="hljs-tag">&lt;/<span class="hljs-name">mat-label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">matInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Ex. It makes me feel..."</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                  </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #tsText class="comment-text">/** No TS for this example */</p>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Leave a comment"></textarea>
+            </mat-form-field>
+          </mat-card>
+        </div>
+
+
+        <div class="main-tab-area">
+          <div class="code-header mat-card">
+            <h3>Input with error messages</h3>
+            <button mat-icon-button matTooltip="View Code" class="float-right"
+                    (click)="validateFieldView = !validateFieldView">
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <mat-card class="main-outer-card">
+            <mat-tab-group *ngIf="validateFieldView">
+              <mat-tab label="HTML">
+                <div class="docs-source">
+                  <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span> <span class="hljs-attr">matInput</span> <span class="hljs-attr">appearance</span>=<span class="hljs-string">"outline"</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-label</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">mat-label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">matInput</span> [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">"emailFormControl"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Ex. pat@example.com"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-error</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"emailFormControl.hasError('email') &amp;&amp; !emailFormControl.hasError('required')"</span>&gt;</span>
+      Please enter a valid email address
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-error</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-error</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"emailFormControl.hasError('required')"</span>&gt;</span>
+      Email is <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>required<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-error</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                  </pre>
+                </div>
+              </mat-tab>
+              <mat-tab label="TS">
+                <div class="docs-source">
+                  <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <pre #tsText>
+<span class="hljs-keyword">import</span> &#123;Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> &#123;FormControl, Validators} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
+
+<span class="hljs-comment">/**
+ * @title Input with error messages
+ */</span>
+<span class="hljs-meta">@Component</span>(&#123;
+                    selector: <span class="hljs-string">'input-errors-example'</span>,
+                    templateUrl: <span class="hljs-string">'input-errors-example.html'</span>,
+                    styleUrls: [<span class="hljs-string">'input-errors-example.css'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> InputErrorsExample &#123;
+                    emailFormControl = <span class="hljs-keyword">new</span> FormControl(<span class="hljs-string">''</span>, [
+                      Validators.required,
+                      Validators.email,
+                    ]);
+}
+
+                  </pre>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="CSS/SCSS">
+                <div class="docs-source">
+                  <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                  <p #cssText class="comment-text">/** No CSS for this example */</p>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <mat-form-field appearance="outline" class="col-md-12">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" [formControl]="emailFormControl"
+                     [errorStateMatcher]="matcher">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

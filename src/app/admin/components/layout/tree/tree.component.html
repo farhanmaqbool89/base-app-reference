@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-md-2">
+      <div class="panel-body">
+        <div class="sub-heading">
+          <h2>Tree</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card>
+              <p><strong>Simple Tree</strong></p>
+              <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+                  <button mat-icon-button disabled></button>
+                  {{node.filename}} : {{node.type}}
+                </mat-tree-node>
+
+                <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                  <button mat-icon-button matTreeNodeToggle
+                          [attr.aria-label]="'toggle ' + node.filename">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                      {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                  </button>
+                  {{node.filename}} : {{node.type}}
+                </mat-tree-node>
+              </mat-tree>
+
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

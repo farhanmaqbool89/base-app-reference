@@ -1,0 +1,228 @@
+<div class="container-fluid main-section-area" [class.dark-theme]="otherTheme" [class.large-screen]="fontSize">
+    <div class="row">
+        <div class="col-sm-12 main-nav">
+            <button class="menu-trigger" mat-raised-button
+                    (click)="opened = !opened ; barStatus = false;"><i class="material-icons">menu</i>
+            </button>
+            <app-top-bar></app-top-bar>
+        </div>
+
+        <mat-sidenav-container class="main-sidebar" hasBackdrop="false" [ngClass]="barStatus ? 'expand' : 'collapse'">
+            <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')">
+
+                <mat-nav-list class="action-area">
+                    <!--<a mat-list-item (click)="manageWallboard('createWallboard')">-->
+                    <!--<span class="sidebar-text">Create Wallboard</span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item (click)="manageWallboard('createGroup')">-->
+                    <!--<span class="sidebar-text">Create Group</span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item>-->
+                    <!--<span class="sidebar-text" [routerLink]="['/admin']">Manage Wallboard</span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item>-->
+                    <!--<span class="sidebar-text" [routerLink]="['/manage-group']">Manage Group</span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item>-->
+                    <!--<span class="sidebar-text" (click)="manageWallboard('pendingWallboard')">Unpublished / Unfinished Wallboards </span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item>-->
+                    <!--<span class="sidebar-text">Settings</span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item>-->
+                    <!--<span class="sidebar-text">About EF Wallboards </span>-->
+                    <!--</a>-->
+                    <!--<a mat-list-item (click)="onKeydown(($event))">-->
+                    <!--<span class="sidebar-text">Fullscreen View</span>-->
+                    <!--</a>-->
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!--<mat-panel-title>-->
+                                <i class="material-icons">assignment</i>
+                                <span class="sidebar-text">Pages</span>
+                                <!--</mat-panel-title>-->
+                            </mat-expansion-panel-header>
+                            <a mat-list-item [routerLink]="['/pages/contacts']">
+                                <span class="sidebar-text">Contacts</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/login']">
+                                <span class="sidebar-text">Login</span>
+                            </a>
+
+
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!--<mat-panel-title>-->
+                                <i class="material-icons">assignment</i>
+                                <span class="sidebar-text">Form Controls</span>
+                                <!--</mat-panel-title>-->
+                            </mat-expansion-panel-header>
+                            <a mat-list-item [routerLinkActive]="['active-link']" [routerLink]="['/form-controls/autocomplete']">
+                                <span class="sidebar-text">Autocomplete</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/checkbox']">
+                                <span class="sidebar-text">Checkbox</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/datepicker']">
+                                <span class="sidebar-text">Datepicker</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/forms']">
+                                <span class="sidebar-text">Form field</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/input']">
+                                <span class="sidebar-text">Input</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/radio']">
+                                <span class="sidebar-text">Radio button</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/select']">
+                                <span class="sidebar-text">Select</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/slider']">
+                                <span class="sidebar-text">Slider</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/form-controls/slide-toggle']">
+                                <span class="sidebar-text">Slide toggle</span>
+                            </a>
+
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!--<mat-panel-title>-->
+                                <i class="material-icons">grid_on</i>
+                                <span class="sidebar-text">Tables</span>
+                                <!--</mat-panel-title>-->
+                            </mat-expansion-panel-header>
+
+
+                            <a mat-list-item [routerLink]="['/tables/basic-tables']">
+                                <span class="sidebar-text">Basic Tables</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/tables/advance-tables']">
+                                <span class="sidebar-text">Advance Tables</span>
+                            </a>
+
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!--<mat-panel-title>-->
+                                <i class="material-icons">web</i>
+                                <span class="sidebar-text">Layout</span>
+                                <!--</mat-panel-title>-->
+                            </mat-expansion-panel-header>
+
+
+                            <a mat-list-item [routerLink]="['/layout/cards']">
+                                <span class="sidebar-text">Cards</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/divider']">
+                                <span class="sidebar-text">Divider</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/expansion-panel']">
+                                <span class="sidebar-text">Expansion Panel</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/grid-list']">
+                                <span class="sidebar-text">Grid List</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/list']">
+                                <span class="sidebar-text">List</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/stepper']">
+                                <span class="sidebar-text">Stepper</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/layout/tabs']">
+                                <span class="sidebar-text">Tabs</span>
+                            </a>
+                            <!--<a mat-list-item [routerLink]="['/layout/tree']">-->
+                                <!--<span class="sidebar-text">Tree</span>-->
+                            <!--</a>-->
+
+
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <i class="material-icons">subtitles</i>
+                                <span class="sidebar-text">Buttons & Indicators</span>
+                            </mat-expansion-panel-header>
+
+
+                            <a mat-list-item [routerLink]="['/buttons-indicators/buttons']">
+                                <span class="sidebar-text">Buttons</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/buttons-indicators/toggle-badges']">
+                                <span class="sidebar-text">Toggle & Badges</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/buttons-indicators/chips-icons']">
+                                <span class="sidebar-text">Chips & Icons</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/buttons-indicators/progress']">
+                                <span class="sidebar-text">Progress</span>
+                            </a>
+
+                        </mat-expansion-panel>
+
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <i class="material-icons">library_books</i>
+                                <span class="sidebar-text">Popups & Modals</span>
+                            </mat-expansion-panel-header>
+
+                            <a mat-list-item [routerLink]="['/popup-modal/bottom-sheet']">
+                                <span class="sidebar-text">Bottom Sheet</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/popup-modal/dialog']">
+                                <span class="sidebar-text">Dialog</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/popup-modal/snackbar-tooltip']">
+                                <span class="sidebar-text">Snackbar & Tooltip</span>
+                            </a>
+
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <i class="material-icons">menu</i>
+                                <span class="sidebar-text">Navigation</span>
+                            </mat-expansion-panel-header>
+                            <a mat-list-item [routerLink]="['/navigation/menu']">
+                                <span class="sidebar-text">Menu</span>
+                            </a>
+                            <a mat-list-item [routerLink]="['/navigation/toolbar']">
+                                <span class="sidebar-text">Toolbar</span>
+                            </a>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <a mat-list-item>
+                        <mat-slide-toggle (click)="changeTheme()">
+                            change theme
+                        </mat-slide-toggle>
+                    </a>
+                    <!--<a mat-list-item>-->
+                        <!--<mat-slide-toggle (click)="changeFontSize()">-->
+                            <!--change font size-->
+                        <!--</mat-slide-toggle>-->
+                    <!--</a>-->
+
+                    <a mat-list-item (click)="clickEvent()"
+                       matTooltip="{{barStatus ? 'expand icons' : 'collapse icons'}}" class="bottom-trigger">
+                        <i class="fa" [ngClass]="barStatus ? 'fa-indent' : 'fa-outdent'"></i>
+                    </a>
+                </mat-nav-list>
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+                <div class="col-sm-12 main-outlet">
+                    <router-outlet></router-outlet>
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+
+</div>

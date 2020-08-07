@@ -1,0 +1,210 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Menu</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-tab-area">
+                            <div class="code-header mat-card">
+                                <h3>Basic Menu</h3>
+                                <button mat-icon-button matTooltip="View Code" class="float-right"
+                                        (click)="showSourceMenu = !showSourceMenu">
+                                    <mat-icon>code</mat-icon>
+                                </button>
+                            </div>
+                            <mat-card class="main-outer-card">
+                                <mat-tab-group *ngIf="showSourceMenu">
+                                    <mat-tab label="HTML">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-button</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"menu"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">menu</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+                                            </pre>
+                                        </div>
+                                    </mat-tab>
+                                    <mat-tab label="TS">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <p #tsText class="comment-text">/** No TS for this example */</p>
+                                        </div>
+                                    </mat-tab>
+
+                                    <mat-tab label="CSS/SCSS">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                        </div>
+                                    </mat-tab>
+                                </mat-tab-group>
+
+                                <div class="preview-area">
+                                    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item>Item 1</button>
+                                        <button mat-menu-item>Item 2</button>
+                                    </mat-menu>
+                                </div>
+                            </mat-card>
+                        </div>
+
+
+                        <div class="main-tab-area">
+                            <div class="code-header mat-card">
+                                <h3>Nested menu</h3>
+                                <button mat-icon-button matTooltip="View Code" class="float-right"
+                                        (click)="showSourceNestedMenu = !showSourceNestedMenu">
+                                    <mat-icon>code</mat-icon>
+                                </button>
+                            </div>
+                            <mat-card class="main-outer-card">
+                                <mat-tab-group *ngIf="showSourceNestedMenu">
+                                    <mat-tab label="HTML">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-button</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"animals"</span>&gt;</span>Animal index<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">animals</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"vertebrates"</span>&gt;</span>Vertebrates<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"invertebrates"</span>&gt;</span>Invertebrates<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">vertebrates</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"fish"</span>&gt;</span>Fishes<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"amphibians"</span>&gt;</span>Amphibians<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">"reptiles"</span>&gt;</span>Reptiles<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Birds<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Mammals<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">invertebrates</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Insects<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Molluscs<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Crustaceans<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Corals<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Arachnids<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Velvet worms<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Horseshoe crabs<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">fish</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Baikal oilfish<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Bala shark<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Ballan wrasse<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Bamboo shark<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Banded killifish<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">amphibians</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Sonoran desert toad<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Western toad<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Arroyo toad<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Yosemite toad<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">reptiles</span>=<span class="hljs-string">"matMenu"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Banded Day Gecko<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Banded Gila Monster<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Black Tree Monitor<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>Blue Spiny Lizard<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mat-menu-item</span> <span class="hljs-attr">disabled</span>&gt;</span>Velociraptor<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+                                            </pre>
+                                        </div>
+                                    </mat-tab>
+                                    <mat-tab label="TS">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <p #tsText class="comment-text">/** No TS for this example */</p>
+                                        </div>
+                                    </mat-tab>
+
+                                    <mat-tab label="CSS/SCSS">
+                                        <div class="docs-source">
+                                            <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                                <mat-icon>content_copy</mat-icon>
+                                            </button>
+                                            <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                        </div>
+                                    </mat-tab>
+                                </mat-tab-group>
+                                <div class="preview-area">
+                                    <button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+
+                                    <mat-menu #animals="matMenu">
+                                        <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+                                        <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+                                    </mat-menu>
+
+                                    <mat-menu #vertebrates="matMenu">
+                                        <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+                                        <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+                                        <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+                                        <button mat-menu-item>Birds</button>
+                                        <button mat-menu-item>Mammals</button>
+                                    </mat-menu>
+
+                                    <mat-menu #invertebrates="matMenu">
+                                        <button mat-menu-item>Insects</button>
+                                        <button mat-menu-item>Molluscs</button>
+                                        <button mat-menu-item>Crustaceans</button>
+                                        <button mat-menu-item>Corals</button>
+                                        <button mat-menu-item>Arachnids</button>
+                                        <button mat-menu-item>Velvet worms</button>
+                                        <button mat-menu-item>Horseshoe crabs</button>
+                                    </mat-menu>
+
+                                    <mat-menu #fish="matMenu">
+                                        <button mat-menu-item>Baikal oilfish</button>
+                                        <button mat-menu-item>Bala shark</button>
+                                        <button mat-menu-item>Ballan wrasse</button>
+                                        <button mat-menu-item>Bamboo shark</button>
+                                        <button mat-menu-item>Banded killifish</button>
+                                    </mat-menu>
+
+                                    <mat-menu #amphibians="matMenu">
+                                        <button mat-menu-item>Sonoran desert toad</button>
+                                        <button mat-menu-item>Western toad</button>
+                                        <button mat-menu-item>Arroyo toad</button>
+                                        <button mat-menu-item>Yosemite toad</button>
+                                    </mat-menu>
+
+                                    <mat-menu #reptiles="matMenu">
+                                        <button mat-menu-item>Banded Day Gecko</button>
+                                        <button mat-menu-item>Banded Gila Monster</button>
+                                        <button mat-menu-item>Black Tree Monitor</button>
+                                        <button mat-menu-item>Blue Spiny Lizard</button>
+                                        <button mat-menu-item disabled>Velociraptor</button>
+                                    </mat-menu>
+                                </div>
+                            </mat-card>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

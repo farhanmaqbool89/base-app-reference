@@ -1,0 +1,488 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Chips & Icons</h2>
+                </div>
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Basic Chips</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="basicChips = !basicChips">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+
+                        <mat-tab-group *ngIf="basicChips">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-chip-list</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Fish selection"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span>&gt;</span>One fish<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span>&gt;</span>Two fish<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">selected</span>&gt;</span>Primary fish<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span> <span class="hljs-attr">selected</span>&gt;</span>Accent fish<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip-list</span>&gt;</span>
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <mat-chip-list>
+                            <mat-chip>One fish</mat-chip>
+                            <mat-chip>Two fish</mat-chip>
+                            <mat-chip color="primary" selected>Primary fish</mat-chip>
+                            <mat-chip color="accent" selected>Accent fish</mat-chip>
+                        </mat-chip-list>
+                    </mat-card>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Stacked chips</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="stackedChips = !stackedChips">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+
+                        <mat-tab-group *ngIf="stackedChips">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-chip-list</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mat-chip-list-stacked"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Color selection"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let chip of availableColors"</span> <span class="hljs-attr">selected</span> &#91;<span class="hljs-attr">color</span>&#93;=<span class="hljs-string">"chip.color"</span>&gt;</span>
+
+&#123; &#123; chip.name &#125; &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip-list</span>&gt;</span>
+
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #tsText>
+<span class="hljs-keyword">import</span> &#123;Component&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> &#123;ThemePalette&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/core'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> ChipColor &#123;
+name: <span class="hljs-built_in">string</span>;
+color: ThemePalette;
+&#125;
+
+<span class="hljs-comment">/**
+ * @title Stacked chips
+ */</span>
+<span class="hljs-meta">@Component</span>&#40;&#123;
+selector: <span class="hljs-string">'chips-stacked-example'</span>,
+templateUrl: <span class="hljs-string">'chips-stacked-example.html'</span>,
+styleUrls: &#91;<span class="hljs-string">'chips-stacked-example.css'</span>&#93;,
+        &#125;&#41;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ChipsStackedExample &#123;
+    availableColors: ChipColor&#91;&#93; = &#91;
+    &#123;name: <span class="hljs-string">'none'</span>, color: <span class="hljs-literal">undefined</span>&#125;,
+        &#123;name: <span class="hljs-string">'Primary'</span>, color: <span class="hljs-string">'primary'</span>&#125;,
+        &#123;name: <span class="hljs-string">'Accent'</span>, color: <span class="hljs-string">'accent'</span>&#125;,
+        &#123;name: <span class="hljs-string">'Warn'</span>, color: <span class="hljs-string">'warn'</span>&#125;
+&#93;;
+&#125;
+                                    </pre>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <mat-chip-list class="mat-chip-list-stacked">
+                            <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color">
+                                {{chip.name}}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </mat-card>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Chips Auto Complete</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="autoCompleateChips = !autoCompleateChips">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="autoCompleateChips">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip-list</span> #<span class="hljs-attr">chipList</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Fruit selection"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span>
+      *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let fruit of fruits"</span>
+      [<span class="hljs-attr">selectable</span>]=<span class="hljs-string">"selectable"</span>
+      [<span class="hljs-attr">removable</span>]=<span class="hljs-string">"removable"</span>
+      (<span class="hljs-attr">removed</span>)=<span class="hljs-string">"remove(fruit)"</span>&gt;</span>
+    {{fruit}}
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-icon</span> <span class="hljs-attr">matChipRemove</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"removable"</span>&gt;</span>cancel<span class="hljs-tag">&lt;/<span class="hljs-name">mat-icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"New fruit..."</span>
+      #<span class="hljs-attr">fruitInput</span>
+      [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">"fruitCtrl"</span>
+      [<span class="hljs-attr">matAutocomplete</span>]=<span class="hljs-string">"auto"</span>
+      [<span class="hljs-attr">matChipInputFor</span>]=<span class="hljs-string">"chipList"</span>
+      [<span class="hljs-attr">matChipInputSeparatorKeyCodes</span>]=<span class="hljs-string">"separatorKeysCodes"</span>
+      (<span class="hljs-attr">matChipInputTokenEnd</span>)=<span class="hljs-string">"add($event)"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip-list</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-autocomplete</span> #<span class="hljs-attr">auto</span>=<span class="hljs-string">"matAutocomplete"</span> (<span class="hljs-attr">optionSelected</span>)=<span class="hljs-string">"selected($event)"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mat-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let fruit of filteredFruits | async"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"fruit"</span>&gt;</span>
+    {{fruit}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-autocomplete</span>&gt;</span>
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #tsText>
+<span class="hljs-keyword">import</span>  &#123;COMMA, ENTER &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/cdk/keycodes'</span>;
+<span class="hljs-keyword">import</span>  &#123;Component, ElementRef, ViewChild &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span>  &#123;FormControl &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
+<span class="hljs-keyword">import</span>  &#123;MatAutocompleteSelectedEvent, MatAutocomplete &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/autocomplete'</span>;
+<span class="hljs-keyword">import</span>  &#123;MatChipInputEvent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/chips'</span>;
+<span class="hljs-keyword">import</span>  &#123;Observable &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs'</span>;
+<span class="hljs-keyword">import</span>  &#123;map, startWith &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs/operators'</span>;
+
+<span class="hljs-comment">/**
+ * @title Chips Autocomplete
+ */</span>
+<span class="hljs-meta">@Component</span> &#40; &#123;
+  selector: <span class="hljs-string">'chips-autocomplete-example'</span>,
+  templateUrl: <span class="hljs-string">'chips-autocomplete-example.html'</span>,
+  styleUrls:  &#91;<span class="hljs-string">'chips-autocomplete-example.css'</span> &#93;,
+ &#125; &#41;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ChipsAutocompleteExample  &#123;
+                visible &#61;<span class="hljs-literal">true</span>;
+                selectable &#61;<span class="hljs-literal">true</span>;
+                removable &#61;<span class="hljs-literal">true</span>;
+                separatorKeysCodes: <span class="hljs-built_in">number</span> &#91; &#93; &#61; &#91;ENTER, COMMA &#93; ;
+                fruitCtrl &#61;<span class="hljs-keyword">new</span> FormControl &#40; &#41; ;
+                filteredFruits: Observable&lt;<span class="hljs-built_in">string</span> &#91; &#93;&gt; ;
+                fruits: <span class="hljs-built_in">string</span> &#91; &#93; &#61; &#91;<span class="hljs-string">'Lemon'</span> &#93; ;
+                allFruits: <span class="hljs-built_in">string</span> &#91; &#93; &#61; &#91;<span class="hljs-string">'Apple'</span>, <span class="hljs-string">'Lemon'</span>, <span class="hljs-string">'Lime'</span>, <span class="hljs-string">'Orange'</span>, <span class="hljs-string">'Strawberry'</span> &#93; ;
+
+                <span class="hljs-meta">@ViewChild</span> &#40;<span class="hljs-string">'fruitInput'</span> &#41; fruitInput: ElementRef&lt;HTMLInputElement&gt; ;
+                <span class="hljs-meta">@ViewChild</span> &#40;<span class="hljs-string">'auto'</span> &#41; matAutocomplete: MatAutocomplete;
+
+                <span class="hljs-keyword">constructor</span> &#40;<span class="hljs-params"></span> &#41;  &#123;
+                <span class="hljs-keyword">this</span>.filteredFruits &#61;<span class="hljs-keyword">this</span>.fruitCtrl.valueChanges.pipe  &#40;
+                startWith &#40;<span class="hljs-literal">null</span> &#41;,
+                map &#40;<span class="hljs-function"> &#40;<span class="hljs-params">fruit: <span class="hljs-built_in">string</span> | <span class="hljs-literal">null</span></span> &#41; =&gt;</span> fruit ? <span class="hljs-keyword">this</span>._filter &#40;fruit &#41; : <span class="hljs-keyword">this</span>.allFruits.slice &#40; &#41; &#41; &#41; ;
+                &#125;
+
+                add &#40;event: MatChipInputEvent &#41;: <span class="hljs-built_in">void</span>  &#123;
+                <span class="hljs-keyword">const</span> input &#61;event.input;
+                <span class="hljs-keyword">const</span> value &#61;event.value;
+
+                <span class="hljs-comment">// Add our fruit</span>
+                <span class="hljs-keyword">if</span>  &#40; &#40;value || <span class="hljs-string">''</span> &#41;.trim &#40; &#41; &#41;  &#123;
+                <span class="hljs-keyword">this</span>.fruits.push &#40;value.trim &#40; &#41; &#41; ;
+                &#125;
+
+                <span class="hljs-comment">// Reset the input value</span>
+                <span class="hljs-keyword">if</span>  &#40;input &#41;  &#123;
+                input.value &#61;<span class="hljs-string">''</span>;
+                &#125;
+
+                <span class="hljs-keyword">this</span>.fruitCtrl.setValue &#40;<span class="hljs-literal">null</span> &#41; ;
+                &#125;
+
+                remove &#40;fruit: <span class="hljs-built_in">string</span> &#41;: <span class="hljs-built_in">void</span>  &#123;
+                <span class="hljs-keyword">const</span> index &#61;<span class="hljs-keyword">this</span>.fruits.indexOf &#40;fruit &#41; ;
+
+                <span class="hljs-keyword">if</span>  &#40;index &gt;= <span class="hljs-number">0</span> &#41;  &#123;
+                <span class="hljs-keyword">this</span>.fruits.splice &#40;index, <span class="hljs-number">1</span> &#41; ;
+                &#125;
+                &#125;
+
+                selected &#40;event: MatAutocompleteSelectedEvent &#41;: <span class="hljs-built_in">void</span>  &#123;
+                <span class="hljs-keyword">this</span>.fruits.push &#40;event.option.viewValue &#41; ;
+                <span class="hljs-keyword">this</span>.fruitInput.nativeElement.value &#61;<span class="hljs-string">''</span>;
+                <span class="hljs-keyword">this</span>.fruitCtrl.setValue &#40;<span class="hljs-literal">null</span> &#41; ;
+                &#125;
+
+                <span class="hljs-keyword">private</span> _filter &#40;value: <span class="hljs-built_in">string</span> &#41;: <span class="hljs-built_in">string</span> &#91; &#93;  &#123;
+                <span class="hljs-keyword">const</span> filterValue &#61;value.toLowerCase &#40; &#41; ;
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.allFruits.filter &#40;<span class="hljs-function"><span class="hljs-params">fruit</span> =&gt;</span> fruit.toLowerCase &#40; &#41;.indexOf &#40;filterValue &#41;  &#61;&#61;&#61; <span class="hljs-number">0</span> &#41; ;
+                &#125;
+                &#125;
+
+
+                                    </pre>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+
+                        <mat-form-field class="col-md-12">
+                            <mat-chip-list #chipList>
+                                <mat-chip
+                                        *ngFor="let fruit of fruits"
+                                        [selectable]="selectable"
+                                        [removable]="removable"
+                                        (removed)="remove(fruit)">
+                                    {{fruit}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                                <input
+                                        placeholder="New fruit..."
+                                        #fruitInput
+                                        [formControl]="fruitCtrl"
+                                        [matAutocomplete]="auto"
+                                        [matChipInputFor]="chipList"
+                                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                        [matChipInputAddOnBlur]="addOnBlur"
+                                        (matChipInputTokenEnd)="add($event)">
+                            </mat-chip-list>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                    {{fruit}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Chips with input</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="inputChips = !inputChips">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="inputChips">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-form-field</span> <span class="hljs-attr">class</span>&#61;<span class="hljs-string">"example-chip-list"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-chip-list</span> #<span class="hljs-attr">chipList</span> <span class="hljs-attr">aria-label</span>&#61;<span class="hljs-string">"Fruit selection"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-chip</span> *<span class="hljs-attr">ngFor</span>&#61;<span class="hljs-string">"let fruit of fruits"</span> &#91;<span class="hljs-attr">selectable</span>&#93; = <span class="hljs-string">"selectable"</span></span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-icon</span> <span class="hljs-attr">matChipRemove</span> *<span class="hljs-attr">ngIf</span>&#61;<span class="hljs-string">"removable"</span>&gt;</span>cancel<span class="hljs-tag">&lt;/<span class="hljs-name">mat-icon</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">placeholder</span>&#61;<span class="hljs-string">"New fruit..."</span>&#91;<span class="hljs-attr">matChipInputFor</span>&#93; &#61;<span class="hljs-string">"chipList"</span>
+                                                                                                                                                                                                                                                             &#91;<span class="hljs-attr">matChipInputSeparatorKeyCodes</span>&#93; &#61;<span class="hljs-string">"separatorKeysCodes"</span>
+                                                                                                                                                                                                                                                                                                                                                                                         &#91;<span class="hljs-attr">matChipInputAddOnBlur</span>&#93; &#61;<span class="hljs-string">"addOnBlur"</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    &#40;<span class="hljs-attr">matChipInputTokenEnd</span>&#41; &#61;<span class="hljs-string">"add &#40; $event &#41;"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-chip-list</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mat-form-field</span>&gt;</span>
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #tsText >
+
+                                        <span class="hljs-keyword">import</span>  &#123;COMMA, ENTER &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/cdk/keycodes'</span>;
+<span class="hljs-keyword">import</span>  &#123;Component &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span>  &#123;MatChipInputEvent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material/chips'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> Fruit  &#123;
+                                                                                 name: <span class="hljs-built_in">string</span>;
+                                                                                &#125;
+
+<span class="hljs-comment">/**
+ * @title Chips with input
+ */</span>
+<span class="hljs-meta">@Component</span> &#40; &#123;
+  selector: <span class="hljs-string">'chips-input-example'</span>,
+  templateUrl: <span class="hljs-string">'chips-input-example.html'</span>,
+  styleUrls:  &#91;<span class="hljs-string">'chips-input-example.css'</span> &#93;,
+ &#125; &#41;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ChipsInputExample  &#123;
+                                                                             visible &#61;<span class="hljs-literal">true</span>;
+                                                                             selectable &#61;<span class="hljs-literal">true</span>;
+                                                                             removable &#61;<span class="hljs-literal">true</span>;
+                                                                             addOnBlur &#61;<span class="hljs-literal">true</span>;
+                                                                             readonly separatorKeysCodes: <span class="hljs-built_in">number</span> &#91; &#93; &#61; &#91;ENTER, COMMA &#93;;
+                                                                             fruits: Fruit &#91; &#93; &#61; &#91;
+                                                                              &#123;name: <span class="hljs-string">'Lemon'</span> &#125;,
+                                                                            &#123;name: <span class="hljs-string">'Lime'</span> &#125;,
+                                                                            &#123;name: <span class="hljs-string">'Apple'</span> &#125;,
+                                                                            &#93;;
+
+                                                                           add &#40;event: MatChipInputEvent &#41;: <span class="hljs-built_in">void</span>  &#123;
+                                                                           <span class="hljs-keyword">const</span> input &#61;event.input;
+                                                                           <span class="hljs-keyword">const</span> value &#61;event.value;
+
+                                                                           <span class="hljs-comment">// Add our fruit</span>
+                                                                           <span class="hljs-keyword">if</span>  &#40; &#40;value || <span class="hljs-string">''</span> &#41;.trim &#40; &#41; &#41;  &#123;
+                                                                           <span class="hljs-keyword">this</span>.fruits.push &#40; &#123;name: value.trim &#40; &#41; &#125; &#41;;
+                                                                            &#125;
+
+                                                                           <span class="hljs-comment">// Reset the input value</span>
+                                                                           <span class="hljs-keyword">if</span>  &#40;input &#41;  &#123;
+                                                                             input.value &#61;<span class="hljs-string">''</span>;
+                                                                            &#125;
+                                                                            &#125;
+
+                                                                           remove &#40;fruit: Fruit &#41;: <span class="hljs-built_in">void</span>  &#123;
+                                                                           <span class="hljs-keyword">const</span> index &#61;<span class="hljs-keyword">this</span>.fruits.indexOf &#40;fruit &#41;;
+
+                                                                           <span class="hljs-keyword">if</span>  &#40;index &gt;= <span class="hljs-number">0</span> &#41;  &#123;
+                                                                           <span class="hljs-keyword">this</span>.fruits.splice &#40;index, <span class="hljs-number">1</span> &#41;;
+                                                                            &#125;
+                                                                            &#125;
+                                                                            &#125;
+
+                                    </pre>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <mat-form-field class="col-md-12">
+                            <mat-chip-list #chipList>
+                                <mat-chip *ngFor="let fruit of fruitsList" [selectable]="selectable"
+                                          [removable]="removable" (removed)="del(fruit)">
+                                    {{fruit.name}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                                <input placeholder="New fruit..."
+                                       [matChipInputFor]="chipList"
+                                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                       [matChipInputAddOnBlur]="addOnBlur"
+                                       (matChipInputTokenEnd)="addNew($event)">
+                            </mat-chip-list>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Icons</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="iconsSource = !iconsSource">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="iconsSource">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <pre #htmlText>
+<span class="hljs-tag">&lt;<span class="hljs-name">mat-icon</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Example home icon"</span>&gt;</span>home<span class="hljs-tag">&lt;/<span class="hljs-name">mat-icon</span>&gt;</span>
+                                            </pre>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #tsText class="comment-text">/** No TS for this example */</p>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+
+                        <p><strong>Icons</strong></p>
+
+                        <mat-icon>home</mat-icon>
+
+                        <i class="material-icons">
+                            3d_rotation
+                        </i>
+                        <i class="material-icons">
+                            android
+                        </i>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

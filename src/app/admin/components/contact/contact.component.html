@@ -1,0 +1,77 @@
+<div class="container main-custom-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-body">
+                <div class="sub-heading">
+                    <h2>Contacts</h2>
+                </div>
+
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>All Contact Lists</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="codeView = !codeView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="codeView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="contactFormHTML"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #tsText><code [highlight]="contactFormTS"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                        <mat-card-content>
+                            <div class="table-responsive contact-info">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let contacts of contact">
+                                        <td><img src="{{contacts.avatar}}" class="img-thumbnail"></td>
+                                        <td>{{contacts.name}}</td>
+                                        <td>{{contacts.email}}</td>
+                                        <td>{{contacts.phone}}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

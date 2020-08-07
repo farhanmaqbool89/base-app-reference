@@ -1,0 +1,91 @@
+<div class="container main-custom-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-body">
+        <div class="sub-heading">
+                    <h2>Slider With configuration</h2>
+                </div>
+                <div class="main-tab-area">
+                    <div class="code-header mat-card">
+                        <h3>Slider configuration</h3>
+                        <button mat-icon-button matTooltip="View Code" class="float-right"
+                                (click)="codeView = !codeView">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <mat-card class="main-outer-card">
+                        <mat-tab-group *ngIf="codeView">
+                            <mat-tab label="HTML">
+                                <div class="docs-source">
+                                    <button (click)="copyText(htmlText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #htmlText><code [highlight]="slideHTML"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="TS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(tsText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+
+                                    <pre #tsText><code [highlight]="slideTS"></code></pre>
+
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="CSS/SCSS">
+                                <div class="docs-source">
+                                    <button (click)="copyText(cssText?.innerText)" class="copy-btn" mat-icon-button>
+                                        <mat-icon>content_copy</mat-icon>
+                                    </button>
+                                    <p #cssText class="comment-text">/** No CSS for this example */</p>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    <mat-card-content>
+
+                        <section>
+                            <label>Color:</label>
+                            <mat-radio-group [(ngModel)]="color">
+                                <mat-radio-button value="primary">
+                                    Primary
+                                </mat-radio-button>
+                                <mat-radio-button value="accent">
+                                    Accent
+                                </mat-radio-button>
+                                <mat-radio-button value="warn">
+                                    Warn
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </section>
+
+                        <section>
+                            <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+                        </section>
+
+                        <section>
+                            <mat-checkbox [(ngModel)]="disabled">Disabled</mat-checkbox>
+                        </section>
+
+                        <hr>
+                        <p><strong>Result</strong></p>
+
+                        <section>
+                            <mat-slide-toggle
+
+                                    [color]="color"
+                                    [checked]="checked"
+                                    [disabled]="disabled">
+                                Slide me!
+                            </mat-slide-toggle>
+                        </section>
+                    </mat-card-content>
+                </mat-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
