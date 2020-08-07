@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {SnackbarService} from "../../services/snackbar.service";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-contact',
@@ -74,7 +75,7 @@ export class ContactComponent implements OnInit {
     `;
 
 
-    constructor(private userService: UserService, private snackbar: SnackbarService) {
+    constructor(private http: HttpClient, private userService: UserService, private snackbar: SnackbarService) {
 
     }
 
@@ -83,16 +84,35 @@ export class ContactComponent implements OnInit {
     }
 
     getContacts() {
-        this.userService.getUserInfo()
-            .subscribe(res => {
-                    this.contact = res;
-                    console.log(this.contact)
+        // this.userService.getUserInfo()
+        //     .subscribe(res => {
+        //             this.contact = res;
+        //             console.log(this.contact)
+        //
+        //         },
+        //         error => {
+        //             console.log('there is an error in User Info');
+        //             //   this.isUpdating = false;
+        //         });
 
-                },
-                error => {
-                    console.log('there is an error in User Info');
-                    //   this.isUpdating = false;
-                });
+        console.log('hellooooo')
+        // this.userService.getUserInfo()
+        //     .subscribe(res => {
+        //             this.contact = res;
+        //             console.log(this.contact)
+        //
+        //         },
+        //         error => {
+        //             console.log('there is an error in User Info');
+        //             //   this.isUpdating = false;
+        //         });
+        this.http.get('../../../../assets/contacts.json').subscribe((res: any) => {
+            console.log(`ConfigService [readConfiguration] data = [${JSON.stringify(res.user)}]`);
+            this.contact = res.fullInfo;
+
+        }, (error) => {
+            console.log(`ConfigService [readConfiguration] error occurred [${JSON.stringify(error)}]`);
+        });
     }
 
     copyText(val: string) {

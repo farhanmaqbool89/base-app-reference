@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../services/user.service";
 import {MatDialog} from "@angular/material";
 import {GadgetSelectionComponent} from "../gadget-selection/gadget-selection.component";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-wallboard-agent-summary',
@@ -12,7 +13,7 @@ export class WallboardAgentSummaryComponent {
   lineView = [570, 220];
     contact: any;
 
-    constructor(private userService: UserService,
+    constructor(private http: HttpClient,private userService: UserService,
                 private dialog: MatDialog) {
 
     }
@@ -34,15 +35,23 @@ export class WallboardAgentSummaryComponent {
     }
 
     getContacts() {
-        this.userService.getUserInfo()
-            .subscribe(res => {
-                    this.contact = res;
-                    console.log(this.contact)
+        console.log('hellooooo')
+        // this.userService.getUserInfo()
+        //     .subscribe(res => {
+        //             this.contact = res;
+        //             console.log(this.contact)
+        //
+        //         },
+        //         error => {
+        //             console.log('there is an error in User Info');
+        //             //   this.isUpdating = false;
+        //         });
+        this.http.get('../../../assets/contacts.json').subscribe((res: any) => {
+            console.log(`ConfigService [readConfiguration] data = [${JSON.stringify(res.user)}]`);
+            this.contact = res.fullInfo;
 
-                },
-                error => {
-                    console.log('there is an error in User Info');
-                    //   this.isUpdating = false;
-                });
+        }, (error) => {
+            console.log(`ConfigService [readConfiguration] error occurred [${JSON.stringify(error)}]`);
+        });
     }
 }

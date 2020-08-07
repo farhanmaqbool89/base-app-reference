@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,19 @@ export class EndpointsService {
   private getUrl(value: string) {
     return this.baseUrl + value;
   }
+  // allData;
+
+  constructor(private http: HttpClient) {
+  //     this.http.get('../assets/contacts.json').subscribe((res: any) => {
+  //       console.log(`ConfigService [readConfiguration] data = [${JSON.stringify(res.user)}]`);
+  // this.allData = res;
+  //
+  //     }, (error) => {
+  //       console.log(`ConfigService [readConfiguration] error occurred [${JSON.stringify(error)}]`);
+  //     });
+  }
 
 
-
-  constructor() { }
 
 
   public getAllUser() {
