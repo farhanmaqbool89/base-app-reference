@@ -35,7 +35,6 @@ export class WallboardAgentSummaryComponent {
     }
 
     getContacts() {
-        console.log('hellooooo')
         // this.userService.getUserInfo()
         //     .subscribe(res => {
         //             this.contact = res;
@@ -46,8 +45,7 @@ export class WallboardAgentSummaryComponent {
         //             console.log('there is an error in User Info');
         //             //   this.isUpdating = false;
         //         });
-        this.http.get('../../../assets/contacts.json').subscribe((res: any) => {
-            console.log(`ConfigService [readConfiguration] data = [${JSON.stringify(res.user)}]`);
+        this.http.get('../../assets/contacts.json').subscribe((res: any) => {
             this.contact = res.fullInfo;
 
         }, (error) => {
